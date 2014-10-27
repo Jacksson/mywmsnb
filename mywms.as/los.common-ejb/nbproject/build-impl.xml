@@ -780,8 +780,14 @@ exists or setup the property manually. For example like this:
     <!--
                 COMPILATION SECTION
             -->
-    <target depends="init" if="no.dist.ear.dir" name="-deps-module-jar" unless="no.deps"/>
-    <target depends="init" if="dist.ear.dir" name="-deps-ear-jar" unless="no.deps"/>
+    <target depends="init" if="no.dist.ear.dir" name="-deps-module-jar" unless="no.deps">
+        <ant antfile="${project.mywms_as-ejb}/build.xml" inheritall="false" target="dist"/>
+    </target>
+    <target depends="init" if="dist.ear.dir" name="-deps-ear-jar" unless="no.deps">
+        <ant antfile="${project.mywms_as-ejb}/build.xml" inheritall="false" target="dist-ear">
+            <property location="${build.dir}" name="dist.ear.dir"/>
+        </ant>
+    </target>
     <target depends="init, -deps-module-jar, -deps-ear-jar" name="deps-jar"/>
     <target depends="init,deps-jar" name="-pre-pre-compile">
         <mkdir dir="${build.classes.dir}"/>
@@ -792,11 +798,54 @@ exists or setup the property manually. For example like this:
         <!-- You can override this target in the ../build.xml file. -->
     </target>
     <target depends="compile,-library-inclusion-in-archive-weblogic,-library-inclusion-in-archive-by-user" name="library-inclusion-in-archive"/>
-    <target if="is.jars.in.ejbjar" name="-library-inclusion-in-archive-by-user"/>
+    <target if="is.jars.in.ejbjar" name="-library-inclusion-in-archive-by-user">
+        <copyfiles files="${file.reference.barbecue-1.5-beta1.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.commons-beanutils-core.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.commons-digester-1.8.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.iReport.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.iText-2.1.7.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.jasperreports-4.6.0.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.junit-3.8.2.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.poi-3.7-20101029.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${reference.mywms_as-ejb.dist}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.log4j.jar}" todir="${build.classes.dir}"/>
+    </target>
     <target if="is.server.weblogic" name="-library-inclusion-in-archive-weblogic">
-        <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update"/>
+        <basename file="${file.reference.barbecue-1.5-beta1.jar}" property="manifest.file.reference.barbecue-1.5-beta1.jar"/>
+        <basename file="${file.reference.commons-beanutils-core.jar}" property="manifest.file.reference.commons-beanutils-core.jar"/>
+        <basename file="${file.reference.commons-digester-1.8.jar}" property="manifest.file.reference.commons-digester-1.8.jar"/>
+        <basename file="${file.reference.iReport.jar}" property="manifest.file.reference.iReport.jar"/>
+        <basename file="${file.reference.iText-2.1.7.jar}" property="manifest.file.reference.iText-2.1.7.jar"/>
+        <basename file="${file.reference.jasperreports-4.6.0.jar}" property="manifest.file.reference.jasperreports-4.6.0.jar"/>
+        <basename file="${file.reference.junit-3.8.2.jar}" property="manifest.file.reference.junit-3.8.2.jar"/>
+        <basename file="${file.reference.poi-3.7-20101029.jar}" property="manifest.file.reference.poi-3.7-20101029.jar"/>
+        <basename file="${reference.mywms_as-ejb.dist}" property="manifest.reference.mywms_as-ejb.dist"/>
+        <basename file="${file.reference.log4j.jar}" property="manifest.file.reference.log4j.jar"/>
+        <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update">
+            <attribute name="Extension-List" value="jar-1 jar-2 jar-3 jar-4 jar-5 jar-6 jar-7 jar-8 jar-9 jar-10 "/>
+            <attribute name="jar-1-Extension-Name" value="${manifest.file.reference.barbecue-1.5-beta1.jar}"/>
+            <attribute name="jar-2-Extension-Name" value="${manifest.file.reference.commons-beanutils-core.jar}"/>
+            <attribute name="jar-3-Extension-Name" value="${manifest.file.reference.commons-digester-1.8.jar}"/>
+            <attribute name="jar-4-Extension-Name" value="${manifest.file.reference.iReport.jar}"/>
+            <attribute name="jar-5-Extension-Name" value="${manifest.file.reference.iText-2.1.7.jar}"/>
+            <attribute name="jar-6-Extension-Name" value="${manifest.file.reference.jasperreports-4.6.0.jar}"/>
+            <attribute name="jar-7-Extension-Name" value="${manifest.file.reference.junit-3.8.2.jar}"/>
+            <attribute name="jar-8-Extension-Name" value="${manifest.file.reference.poi-3.7-20101029.jar}"/>
+            <attribute name="jar-9-Extension-Name" value="${manifest.reference.mywms_as-ejb.dist}"/>
+            <attribute name="jar-10-Extension-Name" value="${manifest.file.reference.log4j.jar}"/>
+        </manifest>
     </target>
     <target depends="compile" name="library-inclusion-in-manifest">
+        <copyfiles files="${file.reference.barbecue-1.5-beta1.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.commons-beanutils-core.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.commons-digester-1.8.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.iReport.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.iText-2.1.7.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.jasperreports-4.6.0.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.junit-3.8.2.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.poi-3.7-20101029.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${reference.mywms_as-ejb.dist}" todir="${dist.ear.dir}"/>
+        <copyfiles files="${file.reference.log4j.jar}" todir="${dist.ear.dir}/lib"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
     <target name="-copy-meta-inf">
@@ -1179,7 +1228,9 @@ exists or setup the property manually. For example like this:
     <!--
                 CLEANUP SECTION
             -->
-    <target depends="init" name="deps-clean" unless="no.deps"/>
+    <target depends="init" name="deps-clean" unless="no.deps">
+        <ant antfile="${project.mywms_as-ejb}/build.xml" inheritall="false" target="clean"/>
+    </target>
     <target depends="init" name="-do-clean">
         <delete dir="${build.dir}"/>
         <delete dir="${dist.dir}"/>

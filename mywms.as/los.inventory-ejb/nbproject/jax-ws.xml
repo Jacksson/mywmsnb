@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="ManageItemData">
+      <implementation-class>de.linogistix.los.inventory.ws.manage_itemdata.ManageItemDataWSBean</implementation-class>
+    </service>
+    <service name="ManageAdvice">
+      <implementation-class>de.linogistix.los.inventory.ws.manage_advice.ManageAdviceWSBean</implementation-class>
+    </service>
+    <service name="ManageInventoryBean">
+      <implementation-class>de.linogistix.los.inventory.ws.ManageInventoryBean</implementation-class>
+    </service>
+    <service name="GoodsReceiptBean">
+      <implementation-class>de.linogistix.los.inventory.ws.GoodsReceiptBean</implementation-class>
+    </service>
+    <service name="QueryInventoryBean">
+      <implementation-class>de.linogistix.los.inventory.ws.QueryInventoryBean</implementation-class>
+    </service>
+    <service name="ERPQueryInventoryBean">
+      <implementation-class>de.linogistix.los.inventory.ws.ERPQueryInventoryBean</implementation-class>
+    </service>
+    <service name="OrderBean">
+      <implementation-class>de.linogistix.los.inventory.ws.OrderBean</implementation-class>
+    </service>
+  </services>
+  <clients/>
+</jax-ws>
