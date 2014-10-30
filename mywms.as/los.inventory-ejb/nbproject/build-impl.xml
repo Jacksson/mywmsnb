@@ -808,33 +808,41 @@ exists or setup the property manually. For example like this:
     </target>
     <target depends="compile,-library-inclusion-in-archive-weblogic,-library-inclusion-in-archive-by-user" name="library-inclusion-in-archive"/>
     <target if="is.jars.in.ejbjar" name="-library-inclusion-in-archive-by-user">
-        <copyfiles files="${libs.junit.classpath}" todir="${build.classes.dir}"/>
-        <copyfiles files="${reference.los_common-ejb.dist}" todir="${build.classes.dir}"/>
-        <copyfiles files="${reference.los_location-ejb.dist}" todir="${build.classes.dir}"/>
         <copyfiles files="${reference.mywms_as-ejb.dist}" todir="${build.classes.dir}"/>
+        <copyfiles files="${reference.los_location-ejb.dist}" todir="${build.classes.dir}"/>
+        <copyfiles files="${reference.los_common-ejb.dist}" todir="${build.classes.dir}"/>
+        <copyfiles files="${libs.junit.classpath}" todir="${build.classes.dir}"/>
         <copyfiles files="${file.reference.log4j.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.jbossws-api-1.0.0.GA.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.jboss-ejb3-ext-api-2.0.0.jar}" todir="${build.classes.dir}"/>
     </target>
     <target if="is.server.weblogic" name="-library-inclusion-in-archive-weblogic">
-        <basename file="${libs.junit.classpath}" property="manifest.libs.junit.classpath"/>
-        <basename file="${reference.los_common-ejb.dist}" property="manifest.reference.los_common-ejb.dist"/>
-        <basename file="${reference.los_location-ejb.dist}" property="manifest.reference.los_location-ejb.dist"/>
         <basename file="${reference.mywms_as-ejb.dist}" property="manifest.reference.mywms_as-ejb.dist"/>
+        <basename file="${reference.los_location-ejb.dist}" property="manifest.reference.los_location-ejb.dist"/>
+        <basename file="${reference.los_common-ejb.dist}" property="manifest.reference.los_common-ejb.dist"/>
+        <basename file="${libs.junit.classpath}" property="manifest.libs.junit.classpath"/>
         <basename file="${file.reference.log4j.jar}" property="manifest.file.reference.log4j.jar"/>
+        <basename file="${file.reference.jbossws-api-1.0.0.GA.jar}" property="manifest.file.reference.jbossws-api-1.0.0.GA.jar"/>
+        <basename file="${file.reference.jboss-ejb3-ext-api-2.0.0.jar}" property="manifest.file.reference.jboss-ejb3-ext-api-2.0.0.jar"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Extension-List" value="jar-1 jar-2 jar-3 jar-4 jar-5 "/>
-            <attribute name="jar-1-Extension-Name" value="${manifest.libs.junit.classpath}"/>
-            <attribute name="jar-2-Extension-Name" value="${manifest.reference.los_common-ejb.dist}"/>
-            <attribute name="jar-3-Extension-Name" value="${manifest.reference.los_location-ejb.dist}"/>
-            <attribute name="jar-4-Extension-Name" value="${manifest.reference.mywms_as-ejb.dist}"/>
+            <attribute name="Extension-List" value="jar-1 jar-2 jar-3 jar-4 jar-5 jar-6 jar-7 "/>
+            <attribute name="jar-1-Extension-Name" value="${manifest.reference.mywms_as-ejb.dist}"/>
+            <attribute name="jar-2-Extension-Name" value="${manifest.reference.los_location-ejb.dist}"/>
+            <attribute name="jar-3-Extension-Name" value="${manifest.reference.los_common-ejb.dist}"/>
+            <attribute name="jar-4-Extension-Name" value="${manifest.libs.junit.classpath}"/>
             <attribute name="jar-5-Extension-Name" value="${manifest.file.reference.log4j.jar}"/>
+            <attribute name="jar-6-Extension-Name" value="${manifest.file.reference.jbossws-api-1.0.0.GA.jar}"/>
+            <attribute name="jar-7-Extension-Name" value="${manifest.file.reference.jboss-ejb3-ext-api-2.0.0.jar}"/>
         </manifest>
     </target>
     <target depends="compile" name="library-inclusion-in-manifest">
-        <copyfiles files="${libs.junit.classpath}" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${reference.los_common-ejb.dist}" todir="${dist.ear.dir}"/>
-        <copyfiles files="${reference.los_location-ejb.dist}" todir="${dist.ear.dir}"/>
         <copyfiles files="${reference.mywms_as-ejb.dist}" todir="${dist.ear.dir}"/>
+        <copyfiles files="${reference.los_location-ejb.dist}" todir="${dist.ear.dir}"/>
+        <copyfiles files="${reference.los_common-ejb.dist}" todir="${dist.ear.dir}"/>
+        <copyfiles files="${libs.junit.classpath}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.log4j.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.jbossws-api-1.0.0.GA.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.jboss-ejb3-ext-api-2.0.0.jar}" todir="${dist.ear.dir}/lib"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
     <target name="-copy-meta-inf">

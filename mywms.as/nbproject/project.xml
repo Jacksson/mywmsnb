@@ -24,10 +24,6 @@
                     <path-in-war>/</path-in-war>
                 </library>
                 <library>
-                    <file>${reference.los_inventory-ejb.dist-ear}</file>
-                    <path-in-war>/</path-in-war>
-                </library>
-                <library>
                     <file>${reference.los_stocktaking-ejb.dist-ear}</file>
                     <path-in-war>/</path-in-war>
                 </library>
@@ -37,6 +33,10 @@
                 </library>
                 <library>
                     <file>${reference.project-ejb.dist-ear}</file>
+                    <path-in-war>/</path-in-war>
+                </library>
+                <library>
+                    <file>${reference.los_inventory-ejb.dist-ear}</file>
                     <path-in-war>/</path-in-war>
                 </library>
             </web-module-additional-libraries>

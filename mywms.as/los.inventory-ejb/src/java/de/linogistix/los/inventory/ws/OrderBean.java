@@ -19,7 +19,8 @@ import javax.jws.soap.SOAPBinding;
 
 import org.apache.log4j.Logger;
 import org.jboss.ejb3.annotation.SecurityDomain; //import org.jboss.annotation.security.SecurityDomain;
-import org.jboss.wsf.spi.annotation.WebContext;
+//import org.jboss.wsf.spi.annotation.WebContext;
+import org.jboss.ws.api.annotation.WebContext;
 import org.mywms.facade.BasicFacadeBean;
 import org.mywms.facade.FacadeException;
 

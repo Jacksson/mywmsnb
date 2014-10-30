@@ -24,7 +24,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.apache.log4j.Logger;
-import org.jboss.wsf.spi.annotation.WebContext;
+//import org.jboss.wsf.spi.annotation.WebContext;
+import org.jboss.ws.api.annotation.WebContext;
 import org.mywms.model.ItemData;
 import org.mywms.model.Lot;
 import org.mywms.service.EntityNotFoundException;
