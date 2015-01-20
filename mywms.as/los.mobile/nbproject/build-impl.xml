@@ -780,8 +780,30 @@ exists or setup the property manually. For example like this:
     <!--
                 COMPILATION SECTION
             -->
-    <target depends="init" if="no.dist.ear.dir" name="-deps-module-jar" unless="no.deps"/>
-    <target depends="init" if="dist.ear.dir" name="-deps-ear-jar" unless="no.deps"/>
+    <target depends="init" if="no.dist.ear.dir" name="-deps-module-jar" unless="no.deps">
+        <ant antfile="${project.los_common-ejb}/build.xml" inheritall="false" target="dist"/>
+        <ant antfile="${project.los_inventory-ejb}/build.xml" inheritall="false" target="dist"/>
+        <ant antfile="${project.los_location-ejb}/build.xml" inheritall="false" target="dist"/>
+        <ant antfile="${project.los_stocktaking-ejb}/build.xml" inheritall="false" target="dist"/>
+        <ant antfile="${project.mywms_as-ejb}/build.xml" inheritall="false" target="dist"/>
+    </target>
+    <target depends="init" if="dist.ear.dir" name="-deps-ear-jar" unless="no.deps">
+        <ant antfile="${project.los_common-ejb}/build.xml" inheritall="false" target="dist-ear">
+            <property location="${build.dir}" name="dist.ear.dir"/>
+        </ant>
+        <ant antfile="${project.los_inventory-ejb}/build.xml" inheritall="false" target="dist-ear">
+            <property location="${build.dir}" name="dist.ear.dir"/>
+        </ant>
+        <ant antfile="${project.los_location-ejb}/build.xml" inheritall="false" target="dist-ear">
+            <property location="${build.dir}" name="dist.ear.dir"/>
+        </ant>
+        <ant antfile="${project.los_stocktaking-ejb}/build.xml" inheritall="false" target="dist-ear">
+            <property location="${build.dir}" name="dist.ear.dir"/>
+        </ant>
+        <ant antfile="${project.mywms_as-ejb}/build.xml" inheritall="false" target="dist-ear">
+            <property location="${build.dir}" name="dist.ear.dir"/>
+        </ant>
+    </target>
     <target depends="init, -deps-module-jar, -deps-ear-jar" name="deps-jar"/>
     <target depends="init,deps-jar" name="-pre-pre-compile">
         <mkdir dir="${build.classes.dir}"/>
@@ -792,11 +814,38 @@ exists or setup the property manually. For example like this:
         <!-- You can override this target in the ../build.xml file. -->
     </target>
     <target depends="compile,-library-inclusion-in-archive-weblogic,-library-inclusion-in-archive-by-user" name="library-inclusion-in-archive"/>
-    <target if="is.jars.in.ejbjar" name="-library-inclusion-in-archive-by-user"/>
+    <target if="is.jars.in.ejbjar" name="-library-inclusion-in-archive-by-user">
+        <copyfiles files="${file.reference.log4j.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${reference.los_common-ejb.dist}" todir="${build.classes.dir}"/>
+        <copyfiles files="${reference.los_inventory-ejb.dist}" todir="${build.classes.dir}"/>
+        <copyfiles files="${reference.los_location-ejb.dist}" todir="${build.classes.dir}"/>
+        <copyfiles files="${reference.los_stocktaking-ejb.dist}" todir="${build.classes.dir}"/>
+        <copyfiles files="${reference.mywms_as-ejb.dist}" todir="${build.classes.dir}"/>
+    </target>
     <target if="is.server.weblogic" name="-library-inclusion-in-archive-weblogic">
-        <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update"/>
+        <basename file="${file.reference.log4j.jar}" property="manifest.file.reference.log4j.jar"/>
+        <basename file="${reference.los_common-ejb.dist}" property="manifest.reference.los_common-ejb.dist"/>
+        <basename file="${reference.los_inventory-ejb.dist}" property="manifest.reference.los_inventory-ejb.dist"/>
+        <basename file="${reference.los_location-ejb.dist}" property="manifest.reference.los_location-ejb.dist"/>
+        <basename file="${reference.los_stocktaking-ejb.dist}" property="manifest.reference.los_stocktaking-ejb.dist"/>
+        <basename file="${reference.mywms_as-ejb.dist}" property="manifest.reference.mywms_as-ejb.dist"/>
+        <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update">
+            <attribute name="Extension-List" value="jar-1 jar-2 jar-3 jar-4 jar-5 jar-6 "/>
+            <attribute name="jar-1-Extension-Name" value="${manifest.file.reference.log4j.jar}"/>
+            <attribute name="jar-2-Extension-Name" value="${manifest.reference.los_common-ejb.dist}"/>
+            <attribute name="jar-3-Extension-Name" value="${manifest.reference.los_inventory-ejb.dist}"/>
+            <attribute name="jar-4-Extension-Name" value="${manifest.reference.los_location-ejb.dist}"/>
+            <attribute name="jar-5-Extension-Name" value="${manifest.reference.los_stocktaking-ejb.dist}"/>
+            <attribute name="jar-6-Extension-Name" value="${manifest.reference.mywms_as-ejb.dist}"/>
+        </manifest>
     </target>
     <target depends="compile" name="library-inclusion-in-manifest">
+        <copyfiles files="${file.reference.log4j.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${reference.los_common-ejb.dist}" todir="${dist.ear.dir}"/>
+        <copyfiles files="${reference.los_inventory-ejb.dist}" todir="${dist.ear.dir}"/>
+        <copyfiles files="${reference.los_location-ejb.dist}" todir="${dist.ear.dir}"/>
+        <copyfiles files="${reference.los_stocktaking-ejb.dist}" todir="${dist.ear.dir}"/>
+        <copyfiles files="${reference.mywms_as-ejb.dist}" todir="${dist.ear.dir}"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
     <target name="-copy-meta-inf">
@@ -1179,7 +1228,13 @@ exists or setup the property manually. For example like this:
     <!--
                 CLEANUP SECTION
             -->
-    <target depends="init" name="deps-clean" unless="no.deps"/>
+    <target depends="init" name="deps-clean" unless="no.deps">
+        <ant antfile="${project.los_common-ejb}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.los_inventory-ejb}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.los_location-ejb}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.los_stocktaking-ejb}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.mywms_as-ejb}/build.xml" inheritall="false" target="clean"/>
+    </target>
     <target depends="init" name="-do-clean">
         <delete dir="${build.dir}"/>
         <delete dir="${dist.dir}"/>

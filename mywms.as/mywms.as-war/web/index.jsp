@@ -1,17 +1,20 @@
 <%-- 
-    Document   : index
-    Created on : 25/10/2014, 09:05:14 PM
-    Author     : jackssonmr
---%>
+  Copyright (c) 2006 - 2010 LinogistiX GmbH
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+  www.linogistix.com
+  
+  Project: myWMS-LOS
+--%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<%@page session="false"%>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="expires" content="Mon, 01 Jan 1990 00:00:01 GMT">            
+	</head>
+	<body>      
+		<%        response.sendRedirect("/los-mobile/faces/login.jsp"); %>        
+	</body>
+
 </html>
