@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: push.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: push.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>(function($, rf, jsf) {
+
+
+  /**
+   * Global object accessing general state of Push functionality.
+   *
+   * Push internally uses Atmosphere to handle connection.
+   *
+   * @module RichFaces.push
+   */
+  rf.push = {
+
+    options: {
+      transport: "websocket",
+      fallbackTransport: "long-polling",
+      logLevel: "info"
+    },
+
+    /**
+     * topics that we subscribed to in current atmosphere connection
+     */
+    _subscribedTopics: {},
+
+    /**
+     * topics to be added to subscription during next invocation updateConnection
+     */
+    _addedTopics: {},
+
+    /**
+     * topics to be removed from subscription during next invocation updateConnection
+     */
+    _removedTopics: {},
+
+    /**
+     * Object that holds mapping of addresses to number of subscribed widgets
+     *
+     * { address: counter }
+     *
+     * If counter reaches 0, it is safe to unsubscribe given address.
+     */
+    _handlersCounter: {},
+
+    /**
+     * current Push session identifier
+     */
+    _pushSessionId: null,
+    /**
+     * sequence number which identifies which messages were already processed
+     */
+    _lastMessageNumber: -1,
+
+    /**
+     * the URL that handles Push subscriptions
+     */
+    _pushResourceUrl: null,
+    /**
+     * the URL that handles Atmosphere requests
+     */
+    _pushHandlerUrl: null,
+
+    /**
+     * Checks whether there are requests for adding or removing topics to the list of subscribed topics.
+     *
+     * If yes, it reconnects Atmosphere connection.
+     *
+     * @method updateConnection
+     */
+    updateConnection: function() {
+      if ($.isEmptyObject(this._handlersCounter)) {
+        this._disconnect();
+      } else if (!$.isEmptyObject(this._addedTopics) || !$.isEmptyObject(this._removedTopics)) {
+        this._disconnect();
+        this._connect();
+      }
+
+      this._addedTopics = {};
+      this._removedTopics = {};
+    },
+
+    /**
+     * Increases number of subscriptions to given topic
+     *
+     * @method increaseSubscriptionCounters
+     * @param topic
+     */
+    increaseSubscriptionCounters: function(topic) {
+      if (isNaN(this._handlersCounter[topic]++)) {
+        this._handlersCounter[topic] = 1;
+        this._addedTopics[topic] = true;
+      }
+    },
+
+    /**
+     * Decreases number of subscriptions to given topic
+     *
+     * @method decreaseSubscriptionCounters
+     * @param topic
+     */
+    decreaseSubscriptionCounters: function(topic) {
+      if (--this._handlersCounter[topic] == 0) {
+        delete this._handlersCounter[topic];
+        this._removedTopics[topic] = true;
+        this._subscribedTopics[topic] = false;
+      }
+    },
+
+    /**
+     * Setups the URL that handles Push subscriptions
+     *
+     * @method setPushResourceUrl
+     * @param url
+     */
+    setPushResourceUrl: function(url) {
+      this._pushResourceUrl = qualifyUrl(url);
+    },
+
+    /**
+     * Setups the URL that handles Atmosphere requests
+     *
+     * @method setPushHandlerUrl
+     * @param url
+     */
+    setPushHandlerUrl: function(url) {
+      this._pushHandlerUrl = qualifyUrl(url);
+    },
+
+    /**
+     * Handles messages transported using Atmosphere
+     */
+    _messageCallback: function(response) {
+      var suspendMessageEndMarker = /^(&lt;!--[^>]+-->\s*)+/;
+      var messageTokenExpr = /&lt;msg topic="([^"]+)" number="([^"]+)">([^&lt;]*)&lt;\/msg>/g;
+
+      var dataString = response.responseBody.replace(suspendMessageEndMarker, "");
+      if (dataString) {
+        var messageToken;
+        while (messageToken = messageTokenExpr.exec(dataString)) {
+          if (!messageToken[1]) {
+            continue;
+          }
+
+          var message = {
+              topic: messageToken[1],
+              number: parseInt(messageToken[2]),
+              data: $.parseJSON(messageToken[3])
+          };
+
+          if (message.number &lt;= this._lastMessageNumber) {
+            continue;
+          }
+
+          var event = new jQuery.Event('push.push.RICH.' + message.topic, { rf: { data: message.data } });
+
+          (function(event) {
+            $(function() {
+              $(document).trigger(event);
+            });
+          })(event);
+
+          this._lastMessageNumber = message.number;
+        }
+      }
+    },
+
+    /**
+     * Handles errors during Atmosphere initialization and transport
+     */
+    _errorCallback: function(response) {
+      for (var address in this.newlySubcribed) {
+        this._subscribedTopics[address] = true;
+        $(document).trigger('error.push.RICH.' + address, response);
+      }
+    },
+
+    /**
+     * Initializes Atmosphere connection
+     */
+    _connect: function() {
+      this.newlySubcribed = {};
+
+      var topics = [];
+      for (var address in this._handlersCounter) {
+        topics.push(address);
+        if (!this._subscribedTopics[address]) {
+          this.newlySubcribed[address] = true;
+        }
+      }
+
+      var data = {
+        'pushTopic': topics
+      };
+
+      if (this._pushSessionId) {
+        data['forgetPushSessionId'] = this._pushSessionId;
+      }
+
+      //TODO handle request errors
+      $.ajax({
+        data: data,
+        dataType: 'text',
+        traditional: true,
+        type: 'POST',
+        url: this._pushResourceUrl,
+        success: $.proxy(function(response) {
+          var data = $.parseJSON(response);
+
+          for (var address in data.failures) {
+            $(document).trigger('error.push.RICH.' + address);
+          }
+
+          if (data.sessionId) {
+            this._pushSessionId = data.sessionId;
+
+            var url = this._pushHandlerUrl || this._pushResourceUrl;
+            url += "?__richfacesPushAsync=1&pushSessionId="
+            url += this._pushSessionId;
+
+            var messageCallback = $.proxy(this._messageCallback, this);
+            var errorCallback = $.proxy(this._errorCallback, this);
+
+            $.atmosphere.subscribe(url, messageCallback, {
+              transport: this.options.transport,
+              fallbackTransport: this.options.fallbackTransport,
+              logLevel: this.options.logLevel,
+              onError: errorCallback
+            });
+
+            // fire subscribed events
+            for (var address in this.newlySubcribed) {
+              this._subscribedTopics[address] = true;
+              $(document).trigger('subscribed.push.RICH.' + address);
+            }
+          }
+        }, this)
+      });
+    },
+
+    /**
+     * Ends Atmosphere connection
+     */
+    _disconnect: function() {
+      $.atmosphere.unsubscribe();
+    }
+  };
+
+  /**
+   * jQuery plugin which mades easy to bind the Push to the DOM element
+   * and manage plugins lifecycle and event handling
+   *
+   * @function $.fn.richpush
+   */
+
+  $.fn.richpush = function( options ) {
+    var widget = $.extend({}, $.fn.richpush);
+
+    // for all selected elements
+    return this.each(function() {
+      widget.element = this;
+      widget.options = $.extend({}, widget.options, options);
+      widget.eventNamespace = '.push.RICH.' + widget.element.id;
+
+      // call constructor
+      widget._create();
+
+      // listen for global DOM destruction event
+      $(document).on('beforeDomClean' + widget.eventNamespace, function(event) {
+        // is the push component under destructed DOM element (event target)?
+        if (event.target && (event.target === widget.element || $.contains(event.target, widget.element))) {
+          widget._destroy();
+        }
+      });
+    });
+  };
+
+  $.extend($.fn.richpush, {
+
+    options: {
+
+      /**
+       * Specifies which address (topic) will Push listen on
+       *
+       * @property address
+       * @required
+       */
+      address: null,
+
+      /**
+       * Fired when Push is subscribed to the specified address
+       *
+       * @event subscribed
+       */
+      subscribed: null,
+
+      /**
+       * Triggered when Push receives data
+       *
+       * @event push
+       */
+      push: null,
+
+      /**
+       * Triggered when error is observed during Push initialization or communication
+       *
+       * @event error
+       */
+      error: null
+    },
+
+    _create: function() {
+      var widget = this;
+
+      this.address = this.options.address;
+
+      this.handlers = {
+        subscribed: null,
+        push: null,
+        error: null
+      };
+
+      $.each(this.handlers, function(eventName) {
+        if (widget.options[eventName]) {
+
+          var handler = function(event, data) {
+            if (data) {
+              $.extend(event, {
+                rf: {
+                  data: data
+                }
+              });
+            }
+
+            widget.options[eventName].call(widget.element, event);
+          };
+
+          widget.handlers[eventName] = handler;
+          $(document).on(eventName + widget.eventNamespace + '.' + widget.address, handler);
+        }
+      });
+
+      rf.push.increaseSubscriptionCounters(this.address);
+    },
+
+    _destroy: function() {
+      rf.push.decreaseSubscriptionCounters(this.address);
+      $(document).off(this.eventNamespace);
+    }
+
+  });
+
+  /*
+   * INITIALIZE PUSH
+   *
+   * when document is ready and when JSF errors happens
+   */
+
+  $(document).ready(function() {
+    rf.push.updateConnection();
+  });
+
+  jsf.ajax.addOnEvent(jsfErrorHandler);
+  jsf.ajax.addOnError(jsfErrorHandler);
+
+
+  /* PRIVATE FUNCTIONS */
+
+  function jsfErrorHandler(event) {
+    if (event.type == 'event') {
+      if (event.status != 'success') {
+        return;
+      }
+    } else if (event.type != 'error') {
+      return;
+    }
+
+    rf.push.updateConnection();
+  }
+
+  function qualifyUrl(url) {
+    var result = url;
+    if (url.charAt(0) == '/') {
+      result = location.protocol + '//' + location.host + url;
+    }
+    return result;
+  }
+
+}(RichFaces.jQuery, RichFaces, jsf));</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="push.html">push</a></li></ul><h3>Classes</h3><ul><li><a href="Accordion.html">Accordion</a></li><li><a href="AccordionItem.html">AccordionItem</a></li><li><a href="CollapsiblePanel.html">CollapsiblePanel</a></li><li><a href="PanelMenu.html">PanelMenu</a></li><li><a href="PanelMenuGroup.html">PanelMenuGroup</a></li><li><a href="PanelMenuItem.html">PanelMenuItem</a></li><li><a href="RichFaces.ajaxContainer.html">ajaxContainer</a></li><li><a href="RichFaces.BaseComponent.html">BaseComponent</a></li><li><a href="RichFaces.Event.html">Event</a></li><li><a href="RichFaces.queue.html">queue</a></li><li><a href="TabPanel.html">TabPanel</a></li><li><a href="TogglePanel.html">TogglePanel</a></li><li><a href="Tooltip.html">Tooltip</a></li></ul><h3>Events</h3><ul><li><a href="global.html#event:error">error</a></li><li><a href="global.html#event:push">push</a></li><li><a href="global.html#event:subscribed">subscribed</a></li></ul><h3>Namespaces</h3><ul><li><a href="jQuery.html">jQuery</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__content">__content</a></li><li><a href="global.html#__fireItemChange">__fireItemChange</a></li><li><a href="global.html#__getForm">__getForm</a></li><li><a href="global.html#__header">__header</a></li><li><a href="global.html#decreaseSubscriptionCounters">decreaseSubscriptionCounters</a></li><li><a href="global.html#getPlotObject">getPlotObject</a></li><li><a href="global.html#getValue">getValue</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#increaseSubscriptionCounters">increaseSubscriptionCounters</a></li><li><a href="global.html#invokeEvent">invokeEvent</a></li><li><a href="global.html#onCompleteHandler">onCompleteHandler</a></li><li><a href="global.html#PanelMenu#collapseAll
+
+TODO ...">PanelMenu#collapseAll
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#collapseGroup
+
+TODO ...">PanelMenu#collapseGroup
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#expandAll
+
+TODO ...">PanelMenu#expandAll
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#expandGroup
+
+TODO ...">PanelMenu#expandGroup
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#selectedItem
+
+TODO ...">PanelMenu#selectedItem
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#selectItem
+
+TODO ...">PanelMenu#selectItem
+
+TODO ...</a></li><li><a href="global.html#PanelMenuGroup#switch
+
+TODO ...">PanelMenuGroup#switch
+
+TODO ...</a></li><li><a href="global.html#PanelMenuItem#hide
+
+TODO ...">PanelMenuItem#hide
+
+TODO ...</a></li><li><a href="global.html#PanelMenuItem#select
+
+TODO ...">PanelMenuItem#select
+
+TODO ...</a></li><li><a href="global.html#PanelMenuItem#show
+
+TODO ...">PanelMenuItem#show
+
+TODO ...</a></li><li><a href="global.html#setPushHandlerUrl">setPushHandlerUrl</a></li><li><a href="global.html#setPushResourceUrl">setPushResourceUrl</a></li><li><a href="global.html#setQueueOptions">setQueueOptions</a></li><li><a href="global.html#unghighlight">unghighlight</a></li><li><a href="global.html#updateConnection">updateConnection</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.3-dev</a> on Thu Oct 23 2014 20:37:37 GMT+0200 (CEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

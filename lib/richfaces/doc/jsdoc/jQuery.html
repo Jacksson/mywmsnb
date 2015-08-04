@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: jQuery</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Namespace: jQuery</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+    jQuery
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.position.js.html">jquery.position.js</a>, <a href="jquery.position.js.html#line25">line 25</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="addPositionType"><span class="type-signature">&lt;static> </span>addPositionType<span class="signature">(type, option)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Add or replace position type rules for auto positioning.
+Does not fully determinated with parameters yet, only draft version.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">name of position rules</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>option</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">options of position rules</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.position.js.html">jquery.position.js</a>, <a href="jquery.position.js.html#line129">line 129</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setPosition"><span class="type-signature"></span>setPosition<span class="signature">(source, params)</span><span class="type-signature"> &rarr; {<a href="jQuery.html">jQuery</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Place DOM element relative to another element or using position parameters. Elements with style.display='none' also supported.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>source</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">object that provides information about new position. <p>
+accepts:
+<ul>
+		<li>jQuery selector or object</li>
+		<li>object with id: <code>{id:'myDiv'}</code></li>
+		<li>object with region settings: <code>{left:0, top:0, width:100, height:100}</code></li>
+		<li>DOM Element</li>
+		<li>Event object</li>
+</ul>
+</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">position parameters:
+<dl><dt>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">position type that defines positioning and auto positioning rules ["TOOLTIP","DROPDOWN"]</dt><dt></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>collision</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">not implemented yet</dt><dt></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">provides array(2) with x and y for manually position definition<br/>
+affects only if "type", "from" and "to" not defined</dt><dt></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>from</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">place target relative of source // draft definition</dt><dt></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>to</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">direction for target // draft definition</dt>
+</blockquote></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="jquery.position.js.html">jquery.position.js</a>, <a href="jquery.position.js.html#line35">line 35</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    jQuery wrapped DOM elements
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="jQuery.html">jQuery</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+        <h5>Examples</h5>
+        
+    <pre class="prettyprint"><code> jQuery('#tooltip').setPosition('#myDiv',{from:'LB', to:'AA'});</code></pre>
+
+    <pre class="prettyprint"><code> jQuery('#myClickDiv').bind("click",function(e){jQuery('#tooltip').setPosition(e);});</code></pre>
+
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="push.html">push</a></li></ul><h3>Classes</h3><ul><li><a href="Accordion.html">Accordion</a></li><li><a href="AccordionItem.html">AccordionItem</a></li><li><a href="CollapsiblePanel.html">CollapsiblePanel</a></li><li><a href="PanelMenu.html">PanelMenu</a></li><li><a href="PanelMenuGroup.html">PanelMenuGroup</a></li><li><a href="PanelMenuItem.html">PanelMenuItem</a></li><li><a href="RichFaces.ajaxContainer.html">ajaxContainer</a></li><li><a href="RichFaces.BaseComponent.html">BaseComponent</a></li><li><a href="RichFaces.Event.html">Event</a></li><li><a href="RichFaces.queue.html">queue</a></li><li><a href="TabPanel.html">TabPanel</a></li><li><a href="TogglePanel.html">TogglePanel</a></li><li><a href="Tooltip.html">Tooltip</a></li></ul><h3>Events</h3><ul><li><a href="global.html#event:error">error</a></li><li><a href="global.html#event:push">push</a></li><li><a href="global.html#event:subscribed">subscribed</a></li></ul><h3>Namespaces</h3><ul><li><a href="jQuery.html">jQuery</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__content">__content</a></li><li><a href="global.html#__fireItemChange">__fireItemChange</a></li><li><a href="global.html#__getForm">__getForm</a></li><li><a href="global.html#__header">__header</a></li><li><a href="global.html#decreaseSubscriptionCounters">decreaseSubscriptionCounters</a></li><li><a href="global.html#getPlotObject">getPlotObject</a></li><li><a href="global.html#getValue">getValue</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#increaseSubscriptionCounters">increaseSubscriptionCounters</a></li><li><a href="global.html#invokeEvent">invokeEvent</a></li><li><a href="global.html#onCompleteHandler">onCompleteHandler</a></li><li><a href="global.html#PanelMenu#collapseAll
+
+TODO ...">PanelMenu#collapseAll
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#collapseGroup
+
+TODO ...">PanelMenu#collapseGroup
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#expandAll
+
+TODO ...">PanelMenu#expandAll
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#expandGroup
+
+TODO ...">PanelMenu#expandGroup
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#selectedItem
+
+TODO ...">PanelMenu#selectedItem
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#selectItem
+
+TODO ...">PanelMenu#selectItem
+
+TODO ...</a></li><li><a href="global.html#PanelMenuGroup#switch
+
+TODO ...">PanelMenuGroup#switch
+
+TODO ...</a></li><li><a href="global.html#PanelMenuItem#hide
+
+TODO ...">PanelMenuItem#hide
+
+TODO ...</a></li><li><a href="global.html#PanelMenuItem#select
+
+TODO ...">PanelMenuItem#select
+
+TODO ...</a></li><li><a href="global.html#PanelMenuItem#show
+
+TODO ...">PanelMenuItem#show
+
+TODO ...</a></li><li><a href="global.html#setPushHandlerUrl">setPushHandlerUrl</a></li><li><a href="global.html#setPushResourceUrl">setPushResourceUrl</a></li><li><a href="global.html#setQueueOptions">setQueueOptions</a></li><li><a href="global.html#unghighlight">unghighlight</a></li><li><a href="global.html#updateConnection">updateConnection</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.3-dev</a> on Thu Oct 23 2014 20:37:37 GMT+0200 (CEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:vdldoc="http://vdldoc.org/vdldoc" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>select (RichFaces 4.5.0.Final VDL Documentation)
+			</title>
+<meta name="keywords" content="$title">
+<link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript">
+						if (location.href.indexOf('is-external=true') == -1) parent.document.title = "Tag Documentation";
+					</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<div class="topNav">
+<a name="navbar_top"></a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow"></a>
+<ul class="navList" title="Navigation">
+<li>
+<a href="../overview-summary.html">Overview</a>
+</li>
+<li>
+<a href="tld-summary.html">Library</a>
+</li>
+<li class="navBarCell1Rev">Tag</li>
+<li>
+<a href="../help-doc.html">Help</a>
+</li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>
+<a target="_top" href="../index.html?rich/select.html">
+									Frames
+								</a>
+</li>
+<li>
+<a target="_top" href="select.html">
+									No Frames
+								</a>
+</li>
+</ul>
+<ul class="navList" id="alltags_navbar_top">
+<li>
+<a href="../alltags-noframe.html">All Tags</a>
+</li>
+</ul>
+<script type="text/javascript">
+							document.getElementById("alltags_navbar_top").style.display = (window == top) ? "block" : "none";
+						</script><a name="skip-navbar_top"></a>
+</div>
+<div class="header">
+<h1 title="Library" class="title">rich</h1>
+<h2>
+									Tag
+									select</h2>
+</div>
+<div class="contentContainer">
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>Description:</dt>
+<dd><p> The &lt;rich:select&gt; component provides a drop-down list box for selecting a single value from multiple options. The &lt;rich:select&gt; component can be configured as a combo-box, where it will accept typed input. The component also supports keyboard navigation. The &lt;rich:select&gt; component functions similarly to the JSF UISelectOne component. </p> <p> The &lt;rich:select&gt; can optionally be used in an auto-completing mode, where the values in the drop-down list are provided dynamically using either the autocompleteMethod or autocompleteList attributes. If these attributes are omitted, the component operates in the traditional non-auto-completing mode. Refer to the individual attribute documentation to see which attributes are applicable only with an auto-completing select list. </p> @author abelevich @author <a href="http://community.jboss.org/people/bleathem">Brian Leathem</a></dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Component summary table, listing component information">
+<caption>
+<span>Component Information</span><span class="tabEnd">&nbsp;</span>
+</caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Info</th><th class="colLast" scope="col">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="rowColor">
+<td class="colFirst">Component Type</td><td class="colLast"><code>org.richfaces.Select</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst">Handler Class</td><td class="colLast"><code>org.richfaces.view.facelets.AutocompleteHandler</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst">Renderer Type</td><td class="colLast"><code>org.richfaces.SelectRenderer</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst">Description</td><td class="colLast"><p> The &lt;rich:select&gt; component provides a drop-down list box for selecting a single value from multiple options. The &lt;rich:select&gt; component can be configured as a combo-box, where it will accept typed input. The component also supports keyboard navigation. The &lt;rich:select&gt; component functions similarly to the JSF UISelectOne component. </p> <p> The &lt;rich:select&gt; can optionally be used in an auto-completing mode, where the values in the drop-down list are provided dynamically using either the autocompleteMethod or autocompleteList attributes. If these attributes are omitted, the component operates in the traditional non-auto-completing mode. Refer to the individual attribute documentation to see which attributes are applicable only with an auto-completing select list. </p> @author abelevich @author <a href="http://community.jboss.org/people/bleathem">Brian Leathem</a></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Attribute summary table, listing attribute information">
+<caption>
+<span>Attributes</span><span class="tabEnd">&nbsp;</span>
+</caption>
+<thead>
+<tr>
+<th class="colFirst">Name</th><th class="colOne">Required</th><th class="colOne">Type</th><th class="colLast">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr id="autocompleteList" class="rowColor">
+<td class="colFirst"><a href="#autocompleteList"><code>autocompleteList</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.Object</code>)
+					</td><td class="colLast">A collection of suggestions that will be provided to the user</td>
+</tr>
+<tr id="autocompleteMethod" class="altColor">
+<td class="colFirst"><a href="#autocompleteMethod"><code>autocompleteMethod</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>javax.el.MethodExpression</code>)
+					</td><td class="colLast">A method which provides a list of suggestions according to a user-provided filtering value</td>
+</tr>
+<tr id="binding" class="rowColor">
+<td class="colFirst"><a href="#binding"><code>binding</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>javax.faces.component.UIComponent</code>)
+					</td><td class="colLast">The value binding expression used to wire up this component to a component property of a JavaBean class</td>
+</tr>
+<tr id="clientFilterFunction" class="altColor">
+<td class="colFirst"><a href="#clientFilterFunction"><code>clientFilterFunction</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">A javascript function used to filter the list of items in the select popup</td>
+</tr>
+<tr id="converter" class="rowColor">
+<td class="colFirst"><a href="#converter"><code>converter</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>javax.faces.convert.Converter</code>)
+					</td><td class="colLast">Converter instance registered with this component.</td>
+</tr>
+<tr id="converterMessage" class="altColor">
+<td class="colFirst"><a href="#converterMessage"><code>converterMessage</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">A ValueExpression enabled attribute that, if present, will be used as the text of the converter message, replacing any message that comes from the converter.</td>
+</tr>
+<tr id="defaultLabel" class="rowColor">
+<td class="colFirst"><a href="#defaultLabel"><code>defaultLabel</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Used to set the display text when value is undefined</td>
+</tr>
+<tr id="disabled" class="altColor">
+<td class="colFirst"><a href="#disabled"><code>disabled</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">Flag indicating that this element must never receive focus or be included in a subsequent submit. Default value - "false"</td>
+</tr>
+<tr id="enableManualInput" class="rowColor">
+<td class="colFirst"><a href="#enableManualInput"><code>enableManualInput</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast"><p> If "true" Allows the user to type into a text field to scroll through or filter the list. Implicitly true when using an auto-completing select list. </p> <p> Default is "false" </p></td>
+</tr>
+<tr id="id" class="altColor">
+<td class="colFirst"><a href="#id"><code>id</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">The component identifier for this component. This value must be unique within the closest parent component that is a naming container.</td>
+</tr>
+<tr id="immediate" class="rowColor">
+<td class="colFirst"><a href="#immediate"><code>immediate</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">Flag indicating that this component's value must be converted and validated immediately (that is, during Apply Request Values phase), rather than waiting until Process Validations phase.</td>
+</tr>
+<tr id="itemClass" class="altColor">
+<td class="colFirst"><a href="#itemClass"><code>itemClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Space-separated list of CSS style class(es) to be applied to the list items. This value must be passed through as the "class" attribute on generated markup.</td>
+</tr>
+<tr id="itemLabel" class="rowColor">
+<td class="colFirst"><a href="#itemLabel"><code>itemLabel</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.Object</code>)
+					</td><td class="colLast">Label to be displayed to the user for the corresponding option. Used only with an auto-completing select, where the list of items comes from either the autocompleteList or autocompleteMethod attributes.</td>
+</tr>
+<tr id="itemValue" class="altColor">
+<td class="colFirst"><a href="#itemValue"><code>itemValue</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.Object</code>)
+					</td><td class="colLast">Value to be returned to the server if the corresponding option is selected by the user. Used only with an auto-completing select, where the list of items comes from either the autocompleteList or autocompleteMethod attributes.</td>
+</tr>
+<tr id="listClass" class="rowColor">
+<td class="colFirst"><a href="#listClass"><code>listClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Space-separated list of CSS style class(es) to be applied to the list element. This value must be passed through as the "class" attribute on generated markup.</td>
+</tr>
+<tr id="listHeight" class="altColor">
+<td class="colFirst"><a href="#listHeight"><code>listHeight</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">The height of the list element (in pixels)</td>
+</tr>
+<tr id="listWidth" class="rowColor">
+<td class="colFirst"><a href="#listWidth"><code>listWidth</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">The width of the list element (in pixels)</td>
+</tr>
+<tr id="maxListHeight" class="altColor">
+<td class="colFirst"><a href="#maxListHeight"><code>maxListHeight</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">The maximum height of the list</td>
+</tr>
+<tr id="minChars" class="rowColor">
+<td class="colFirst"><a href="#minChars"><code>minChars</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>int</code>)
+					</td><td class="colLast">Minimal number of chars in input to activate suggestion popup</td>
+</tr>
+<tr id="minListHeight" class="altColor">
+<td class="colFirst"><a href="#minListHeight"><code>minListHeight</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">The minimum height ot the list</td>
+</tr>
+<tr id="mode" class="rowColor">
+<td class="colFirst"><a href="#mode"><code>mode</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>org.richfaces.component.AutocompleteMode</code>)
+					</td><td class="colLast"><p>Determine how the suggestion list is requested:</p> <dl> <dt>client</dt> <dd>pre-loads data to the client and uses the input to filter the possible suggestions</dd> <dt>ajax</dt> <dd>fetches suggestions with every input change using Ajax requests</dd> <dt>lazyClient</dt> <dd> lazy-loads data to the client and uses the input to filter the possible suggestions. The filtering does not start until the input length matches a minimum value. Set the minimum value with the minChars attribute. </dd> <dt>cachedAjax</dt> <dd> lazy-loads data via Ajax requests when the input length matches a minimum value. Set the minimum value with the minChars attribute. All suggestions are handled on the client until the input prefix is changed, at which point a new request is made based on the new input prefix </dd> </dl> <p>Default: cachedAjax</p></td>
+</tr>
+<tr id="onblur" class="altColor">
+<td class="colFirst"><a href="#onblur"><code>onblur</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when this element loses focus.</td>
+</tr>
+<tr id="onchange" class="rowColor">
+<td class="colFirst"><a href="#onchange"><code>onchange</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when the list element loses focus and its value has been modified since gaining focus.</td>
+</tr>
+<tr id="onclick" class="altColor">
+<td class="colFirst"><a href="#onclick"><code>onclick</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is clicked over this element.</td>
+</tr>
+<tr id="ondblclick" class="rowColor">
+<td class="colFirst"><a href="#ondblclick"><code>ondblclick</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is double clicked over this element.</td>
+</tr>
+<tr id="onfocus" class="altColor">
+<td class="colFirst"><a href="#onfocus"><code>onfocus</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when this element receives focus.</td>
+</tr>
+<tr id="onkeydown" class="rowColor">
+<td class="colFirst"><a href="#onkeydown"><code>onkeydown</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a key is pressed down over this element.</td>
+</tr>
+<tr id="onkeypress" class="altColor">
+<td class="colFirst"><a href="#onkeypress"><code>onkeypress</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a key is pressed and released over this element.</td>
+</tr>
+<tr id="onkeyup" class="rowColor">
+<td class="colFirst"><a href="#onkeyup"><code>onkeyup</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a key is released over this element.</td>
+</tr>
+<tr id="onlistclick" class="altColor">
+<td class="colFirst"><a href="#onlistclick"><code>onlistclick</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is clicked over the list element.</td>
+</tr>
+<tr id="onlistdblclick" class="rowColor">
+<td class="colFirst"><a href="#onlistdblclick"><code>onlistdblclick</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is double clicked over the list element.</td>
+</tr>
+<tr id="onlisthide" class="altColor">
+<td class="colFirst"><a href="#onlisthide"><code>onlisthide</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when the list element is hidden</td>
+</tr>
+<tr id="onlistkeydown" class="rowColor">
+<td class="colFirst"><a href="#onlistkeydown"><code>onlistkeydown</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a key is pressed down over the list element.</td>
+</tr>
+<tr id="onlistkeypress" class="altColor">
+<td class="colFirst"><a href="#onlistkeypress"><code>onlistkeypress</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a key is pressed and released over the list element.</td>
+</tr>
+<tr id="onlistkeyup" class="rowColor">
+<td class="colFirst"><a href="#onlistkeyup"><code>onlistkeyup</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a key is released over the list element.</td>
+</tr>
+<tr id="onlistmousedown" class="altColor">
+<td class="colFirst"><a href="#onlistmousedown"><code>onlistmousedown</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is pressed down over the list element.</td>
+</tr>
+<tr id="onlistmousemove" class="rowColor">
+<td class="colFirst"><a href="#onlistmousemove"><code>onlistmousemove</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is moved within the list element.</td>
+</tr>
+<tr id="onlistmouseout" class="altColor">
+<td class="colFirst"><a href="#onlistmouseout"><code>onlistmouseout</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is moved away from the list element.</td>
+</tr>
+<tr id="onlistmouseover" class="rowColor">
+<td class="colFirst"><a href="#onlistmouseover"><code>onlistmouseover</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is moved onto the list element.</td>
+</tr>
+<tr id="onlistmouseup" class="altColor">
+<td class="colFirst"><a href="#onlistmouseup"><code>onlistmouseup</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is released over the list element.</td>
+</tr>
+<tr id="onlistshow" class="rowColor">
+<td class="colFirst"><a href="#onlistshow"><code>onlistshow</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when the list element is shown</td>
+</tr>
+<tr id="onmousedown" class="altColor">
+<td class="colFirst"><a href="#onmousedown"><code>onmousedown</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is pressed down over this element.</td>
+</tr>
+<tr id="onmousemove" class="rowColor">
+<td class="colFirst"><a href="#onmousemove"><code>onmousemove</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is moved within this element.</td>
+</tr>
+<tr id="onmouseout" class="altColor">
+<td class="colFirst"><a href="#onmouseout"><code>onmouseout</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is moved away from this element.</td>
+</tr>
+<tr id="onmouseover" class="rowColor">
+<td class="colFirst"><a href="#onmouseover"><code>onmouseover</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is moved onto this element.</td>
+</tr>
+<tr id="onmouseup" class="altColor">
+<td class="colFirst"><a href="#onmouseup"><code>onmouseup</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is released over this element.</td>
+</tr>
+<tr id="onselectitem" class="rowColor">
+<td class="colFirst"><a href="#onselectitem"><code>onselectitem</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when an item is selected</td>
+</tr>
+<tr id="rendered" class="altColor">
+<td class="colFirst"><a href="#rendered"><code>rendered</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">Flag indicating whether or not this component should be rendered (during Render Response Phase), or processed on any subsequent form submit. The default value for this property is true.</td>
+</tr>
+<tr id="required" class="rowColor">
+<td class="colFirst"><a href="#required"><code>required</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">Flag indicating that the user is required to provide a submitted value for this input component.</td>
+</tr>
+<tr id="requiredMessage" class="altColor">
+<td class="colFirst"><a href="#requiredMessage"><code>requiredMessage</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">A ValueExpression enabled attribute that, if present, will be used as the text of the validation message for the "required" facility, if the "required" facility is used.</td>
+</tr>
+<tr id="selectFirst" class="rowColor">
+<td class="colFirst"><a href="#selectFirst"><code>selectFirst</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast"><p> If "true" as the user types to narrow the list, automatically select the first element in the list. Applicable only when enableManualInput is "true". </p> <p> Default is "true" </p></td>
+</tr>
+<tr id="selectItemClass" class="altColor">
+<td class="colFirst"><a href="#selectItemClass"><code>selectItemClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Space-separated list of CSS style class(es) to be applied to the selected list item. This value must be passed through as the "class" attribute on generated markup.</td>
+</tr>
+<tr id="showButton" class="rowColor">
+<td class="colFirst"><a href="#showButton"><code>showButton</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast"><p> When "true" display a button to expand the popup list </p> <p> Default is "true" </p></td>
+</tr>
+<tr id="style" class="altColor">
+<td class="colFirst"><a href="#style"><code>style</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">CSS style(s) to be applied when this component is rendered.</td>
+</tr>
+<tr id="styleClass" class="rowColor">
+<td class="colFirst"><a href="#styleClass"><code>styleClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Space-separated list of CSS style class(es) to be applied when this element is rendered. This value must be passed through as the "class" attribute on generated markup.</td>
+</tr>
+<tr id="tabindex" class="altColor">
+<td class="colFirst"><a href="#tabindex"><code>tabindex</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Position of this element in the tabbing order for the current document. This value must be an integer between 0 and 32767.</td>
+</tr>
+<tr id="title" class="rowColor">
+<td class="colFirst"><a href="#title"><code>title</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Advisory title information about markup elements generated for this component.</td>
+</tr>
+<tr id="validator" class="altColor">
+<td class="colFirst"><a href="#validator"><code>validator</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>javax.faces.el.MethodBinding</code>)
+					</td><td class="colLast">MethodExpression representing a validator method that will be called during Process Validations to perform correctness checks on the value of this component. The expression must evaluate to a public method that takes FacesContext, UIComponent, and Object parameters, with a return type of void.</td>
+</tr>
+<tr id="validatorMessage" class="rowColor">
+<td class="colFirst"><a href="#validatorMessage"><code>validatorMessage</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">A ValueExpression enabled attribute that, if present, will be used as the text of the validator message, replacing any message that comes from the validator.</td>
+</tr>
+<tr id="value" class="altColor">
+<td class="colFirst"><a href="#value"><code>value</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.Object</code>)
+					</td><td class="colLast">The current value of this component.</td>
+</tr>
+<tr id="valueChangeListener" class="rowColor">
+<td class="colFirst"><a href="#valueChangeListener"><code>valueChangeListener</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>javax.faces.el.MethodBinding</code>)
+					</td><td class="colLast"><p> MethodExpression representing a value change listener method that will be notified when a new value has been set for this input component. The expression must evaluate to a public method that takes a <code>ValueChangeEvent</code> parameter, with a return type of void, <span class="changed_added_2_0">or to a public method that takes no arguments with a return type of void. In the latter case, the method has no way of easily knowing what the new value is, but this can be useful in cases where a notification is needed that "this value changed".</span> </p></td>
+</tr>
+<tr id="var" class="altColor">
+<td class="colFirst"><a href="#var"><code>var</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Expose the values from either the autocompleteList or autocompleteMethod attributes under a request scoped key so that the values may be referred to in an EL expression while rendering this component. Used only in an auto-completing select component.</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+<div class="bottomNav">
+<a name="navbar_bottom"></a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow"></a>
+<ul class="navList" title="Navigation">
+<li>
+<a href="../overview-summary.html">Overview</a>
+</li>
+<li>
+<a href="tld-summary.html">Library</a>
+</li>
+<li class="navBarCell1Rev">Tag</li>
+<li>
+<a href="../help-doc.html">Help</a>
+</li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>
+<a target="_bottom" href="../index.html?rich/select.html">
+									Frames
+								</a>
+</li>
+<li>
+<a target="_bottom" href="select.html">
+									No Frames
+								</a>
+</li>
+</ul>
+<ul class="navList" id="alltags_navbar_bottom">
+<li>
+<a href="../alltags-noframe.html">All Tags</a>
+</li>
+</ul>
+<script type="text/javascript">
+							document.getElementById("alltags_navbar_bottom").style.display = (window == top) ? "block" : "none";
+						</script><a name="skip-navbar_bottom"></a>
+</div>
+<p class="about">Output generated by <a href="http://vdldoc.omnifaces.org" target="_blank">Vdldoc</a> View Declaration Language Documentation Generator.</p>
+</body>
+</html>

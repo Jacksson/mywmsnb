@@ -1,0 +1,2965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Event</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Class: Event</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+    Event
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+<dt>
+    <h4 class="name" id="Event"><span class="type-signature"></span>new Event<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        RichFaces Event API container
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="richfaces-event.js.html">richfaces-event.js</a>, <a href="richfaces-event.js.html#line35">line 35</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="EVENT_NAMESPACE_SEPARATOR"><span class="type-signature">&lt;static, constant> </span>EVENT_NAMESPACE_SEPARATOR<span class="type-signature"> :string</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="richfaces-event.js.html">richfaces-event.js</a>, <a href="richfaces-event.js.html#line83">line 83</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="RICH_NAMESPACE"><span class="type-signature">&lt;static, constant> </span>RICH_NAMESPACE<span class="type-signature"> :string</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="richfaces-event.js.html">richfaces-event.js</a>, <a href="richfaces-event.js.html#line76">line 76</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="bind"><span class="type-signature">&lt;static> </span>bind<span class="signature">(selector, eventType, fn, <span class="optional">data</span>)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Attach a handler to an event for the elements.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">DOMElement</span>
+|
+
+<span class="param-type"><a href="jQuery.html">jQuery</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">jQuery elements selector</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">one or more JavaScript event types, such as "click" or "submit," or custom event names</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event handler</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">component or object with additional data
+It is a context for an event handler</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="richfaces-event.js.html">richfaces-event.js</a>, <a href="richfaces-event.js.html#line110">line 110</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    function that binded to the element's event
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">function</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="bindById"><span class="type-signature">&lt;static> </span>bindById<span class="signature">(id, eventType, fn, <span class="optional">data</span>)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Attach a handler to an event for the element by element id.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">DOM element id</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">one or more JavaScript event types, such as "click" or "submit," or custom event names</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event handler</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">component or object with additional data
+It is a context for an event handler</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="richfaces-event.js.html">richfaces-event.js</a>, <a href="richfaces-event.js.html#line134">line 134</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    function that binded to the element's event
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">function</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="bindOne"><span class="type-signature">&lt;static> </span>bindOne<span class="signature">(selector, eventType, fn, <span class="optional">data</span>)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Attach a handler to an event for the elements.
+The handler will be called only once when event happened.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">DOMElement</span>
+|
+
+<span class="param-type"><a href="jQuery.html">jQuery</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">jQuery elements selector</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">one or more JavaScript event types, such as "click" or "submit," or custom event names</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event handler</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">component or object with additional data
+It is a context for an event handler</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="richfaces-event.js.html">richfaces-event.js</a>, <a href="richfaces-event.js.html#line158">line 158</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    function that binded to the element's event
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">function</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="bindOneById"><span class="type-signature">&lt;static> </span>bindOneById<span class="signature">(id, eventType, fn, <span class="optional">data</span>)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Attach a handler to an event for the element by element id.
+The handler will be called only once when event happened.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">DOM element id</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">one or more JavaScript event types, such as "click" or "submit," or custom event names</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event handler</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">component or object with additional data
+It is a context for an event handler</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="richfaces-event.js.html">richfaces-event.js</a>, <a href="richfaces-event.js.html#line178">line 178</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    function that binded to the element's event
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">function</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="callHandler"><span class="type-signature">&lt;static> </span>callHandler<span class="signature">(selector, eventType, <span class="optional">data</span>)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        The same as the fire method, but:
+ - does not cause the default behavior of an event to occur
+ - does not bubble up event
+ - call handler only for the first founded element
+ - returns whatever value that was returned by the handler
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">DOMElement</span>
+|
+
+<span class="param-type"><a href="jQuery.html">jQuery</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">jQuery elements selector</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event type</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">a object of additional parameters to pass to the event handler</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="richfaces-event.js.html">richfaces-event.js</a>, <a href="richfaces-event.js.html#line278">line 278</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    value that was returned by the handler
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="callHandlerById"><span class="type-signature">&lt;static> </span>callHandlerById<span class="signature">(id, eventType, <span class="optional">data</span>)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        The same as the callHandler method, but selects element by id.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">DOM element id</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event type</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">a object of additional parameters to pass to the event handler</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="richfaces-event.js.html">richfaces-event.js</a>, <a href="richfaces-event.js.html#line296">line 296</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    value that was returned by the handler
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="createNamespace"><span class="type-signature">&lt;static> </span>createNamespace<span class="signature">(<span class="optional">componentName</span>, <span class="optional">id</span>, <span class="optional">prefix</span>)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Create an event namespace for the components.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>componentName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">component name</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">element id</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>prefix</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    RichFaces.Event.RICH_NAMESPACE
+                
+                </td>
+            
+            
+            <td class="description last">namespace prefix</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="richfaces-event.js.html">richfaces-event.js</a>, <a href="richfaces-event.js.html#line310">line 310</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    namespace string
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">string</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="fire"><span class="type-signature">&lt;static> </span>fire<span class="signature">(selector, eventType, <span class="optional">data</span>)</span><span class="type-signature"> &rarr; {<a href="jQuery.html">jQuery</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Execute all handlers and behaviors attached to the matched elements for the given event type.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">DOMElement</span>
+|
+
+<span class="param-type"><a href="jQuery.html">jQuery</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">jQuery elements selector</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event type</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">a object of additional parameters to pass to the event handler</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="richfaces-event.js.html">richfaces-event.js</a>, <a href="richfaces-event.js.html#line246">line 246</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    element wrapped by jQuery
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="jQuery.html">jQuery</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="fireById"><span class="type-signature">&lt;static> </span>fireById<span class="signature">(id, eventType, <span class="optional">data</span>)</span><span class="type-signature"> &rarr; {<a href="jQuery.html">jQuery</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        The same as the fire method, but selects element by id.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">DOM element id</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event type</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">a object of additional parameters to pass to the event handler</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="richfaces-event.js.html">richfaces-event.js</a>, <a href="richfaces-event.js.html#line262">line 262</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    element wrapped by jQuery
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="jQuery.html">jQuery</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="ready"><span class="type-signature">&lt;static> </span>ready<span class="signature">(fn)</span><span class="type-signature"> &rarr; {<a href="jQuery.html">jQuery</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Attach an event handler to execute when the DOM is fully loaded.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">event handler</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="richfaces-event.js.html">richfaces-event.js</a>, <a href="richfaces-event.js.html#line92">line 92</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    document element wrapped by jQuery
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="jQuery.html">jQuery</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="unbind"><span class="type-signature">&lt;static> </span>unbind<span class="signature">(selector, <span class="optional">eventType</span>, <span class="optional">fn</span>)</span><span class="type-signature"> &rarr; {<a href="jQuery.html">jQuery</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Remove a previously-attached event handler from the elements.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">DOMElement</span>
+|
+
+<span class="param-type"><a href="jQuery.html">jQuery</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">jQuery elements selector</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">one or more JavaScript event types, such as "click" or "submit," or custom event names</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event handler</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="richfaces-event.js.html">richfaces-event.js</a>, <a href="richfaces-event.js.html#line198">line 198</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    element wrapped by jQuery
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="jQuery.html">jQuery</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="unbindById"><span class="type-signature">&lt;static> </span>unbindById<span class="signature">(id, <span class="optional">eventType</span>, <span class="optional">fn</span>)</span><span class="type-signature"> &rarr; {<a href="jQuery.html">jQuery</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Remove a previously-attached event handler from the elements by element id.
+The handler will be called only once when event happened.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">DOM element id</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>eventType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">one or more JavaScript event types, such as "click" or "submit," or custom event names</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">event handler</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="richfaces-event.js.html">richfaces-event.js</a>, <a href="richfaces-event.js.html#line213">line 213</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    element wrapped by jQuery
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="jQuery.html">jQuery</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="push.html">push</a></li></ul><h3>Classes</h3><ul><li><a href="Accordion.html">Accordion</a></li><li><a href="AccordionItem.html">AccordionItem</a></li><li><a href="CollapsiblePanel.html">CollapsiblePanel</a></li><li><a href="PanelMenu.html">PanelMenu</a></li><li><a href="PanelMenuGroup.html">PanelMenuGroup</a></li><li><a href="PanelMenuItem.html">PanelMenuItem</a></li><li><a href="RichFaces.ajaxContainer.html">ajaxContainer</a></li><li><a href="RichFaces.BaseComponent.html">BaseComponent</a></li><li><a href="RichFaces.Event.html">Event</a></li><li><a href="RichFaces.queue.html">queue</a></li><li><a href="TabPanel.html">TabPanel</a></li><li><a href="TogglePanel.html">TogglePanel</a></li><li><a href="Tooltip.html">Tooltip</a></li></ul><h3>Events</h3><ul><li><a href="global.html#event:error">error</a></li><li><a href="global.html#event:push">push</a></li><li><a href="global.html#event:subscribed">subscribed</a></li></ul><h3>Namespaces</h3><ul><li><a href="jQuery.html">jQuery</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__content">__content</a></li><li><a href="global.html#__fireItemChange">__fireItemChange</a></li><li><a href="global.html#__getForm">__getForm</a></li><li><a href="global.html#__header">__header</a></li><li><a href="global.html#decreaseSubscriptionCounters">decreaseSubscriptionCounters</a></li><li><a href="global.html#getPlotObject">getPlotObject</a></li><li><a href="global.html#getValue">getValue</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#increaseSubscriptionCounters">increaseSubscriptionCounters</a></li><li><a href="global.html#invokeEvent">invokeEvent</a></li><li><a href="global.html#onCompleteHandler">onCompleteHandler</a></li><li><a href="global.html#PanelMenu#collapseAll
+
+TODO ...">PanelMenu#collapseAll
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#collapseGroup
+
+TODO ...">PanelMenu#collapseGroup
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#expandAll
+
+TODO ...">PanelMenu#expandAll
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#expandGroup
+
+TODO ...">PanelMenu#expandGroup
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#selectedItem
+
+TODO ...">PanelMenu#selectedItem
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#selectItem
+
+TODO ...">PanelMenu#selectItem
+
+TODO ...</a></li><li><a href="global.html#PanelMenuGroup#switch
+
+TODO ...">PanelMenuGroup#switch
+
+TODO ...</a></li><li><a href="global.html#PanelMenuItem#hide
+
+TODO ...">PanelMenuItem#hide
+
+TODO ...</a></li><li><a href="global.html#PanelMenuItem#select
+
+TODO ...">PanelMenuItem#select
+
+TODO ...</a></li><li><a href="global.html#PanelMenuItem#show
+
+TODO ...">PanelMenuItem#show
+
+TODO ...</a></li><li><a href="global.html#setPushHandlerUrl">setPushHandlerUrl</a></li><li><a href="global.html#setPushResourceUrl">setPushResourceUrl</a></li><li><a href="global.html#setQueueOptions">setQueueOptions</a></li><li><a href="global.html#unghighlight">unghighlight</a></li><li><a href="global.html#updateConnection">updateConnection</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.3-dev</a> on Thu Oct 23 2014 20:37:38 GMT+0200 (CEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

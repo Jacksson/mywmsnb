@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: editor.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: editor.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>/**
+ * @author Lukas Fryc
+ */
+
+(function($, rf) {
+    rf.ui = rf.ui || {};
+
+    /**
+     * Default component configuration
+     */
+    var defaultOptions = {
+        toolbar : 'Basic',
+        skin: 'moono',
+        readonly : false,
+        style : '',
+        styleClass : '',
+        editorStyle : '',
+        editorClass : '',
+        width : '100%',
+        height : '200px'
+    };
+    
+    var eventsForDirty = [ "key", "paste", "undo", "redo" ];
+
+    rf.ui.Editor = function(componentId, options, config) {
+        $super.constructor.call(this, componentId);
+        this.options = $.extend({}, defaultOptions, options);
+
+        this.componentId = componentId;
+        this.textareaId = componentId + ':inp';
+        this.editorElementId = 'cke_' + this.textareaId;
+        this.valueChanged = false;
+        this.dirtyState = false;
+        this.config = $.extend({}, config);
+
+        this.attachToDom(this.componentId);
+
+        $(document).ready($.proxy(this.__initializationHandler, this));
+        rf.Event.bindById(this.__getTextarea(), 'init', this.options.oninit, this);
+        rf.Event.bindById(this.__getTextarea(), 'dirty', this.options.ondirty, this);
+    };
+
+    rf.BaseComponent.extend(rf.ui.Editor);
+
+    var $super = rf.ui.Editor.$super;
+
+    $.extend(rf.ui.Editor.prototype, {
+
+        name : "Editor",
+
+        __initializationHandler : function() {
+            this.ckeditor = CKEDITOR.replace(this.textareaId, this.__getConfiguration());
+
+            // register event handlers
+            if (this.__getForm()) {
+                this.__updateTextareaHandlerWrapper = rf.Event.bind(this.__getForm(), 'ajaxsubmit', $.proxy(this.__updateTextareaHandler, this));
+            }
+            this.ckeditor.on('instanceReady', $.proxy(this.__instanceReadyHandler, this));
+            this.ckeditor.on('blur', $.proxy(this.__blurHandler, this));
+            this.ckeditor.on('focus', $.proxy(this.__focusHandler, this));
+            // register handlers for 'dirty' event
+            for (var i in eventsForDirty) {
+                this.ckeditor.on(eventsForDirty[i], $.proxy(this.__checkDirtyHandlerWithDelay, this));
+            }
+            // interval for dirty checking
+            this.dirtyCheckingInterval = window.setInterval($.proxy(this.__checkDirtyHandler, this), 100);
+        },
+        
+        __checkDirtyHandlerWithDelay : function() {
+            window.setTimeout($.proxy(this.__checkDirtyHandler, this), 0);
+        },
+        
+        __checkDirtyHandler : function() {
+            if (this.ckeditor.checkDirty()) {
+                this.dirtyState = true;
+                this.valueChanged = true;
+                this.ckeditor.resetDirty();
+                this.__dirtyHandler();
+            }
+        },
+        
+        __dirtyHandler : function() {
+            this.invokeEvent.call(this, "dirty", document.getElementById(this.textareaId));
+        },
+        
+        __updateTextareaHandler : function() {
+            this.ckeditor.updateElement();
+        },
+
+        __instanceReadyHandler : function(e) {
+            this.__setupStyling();
+            this.__setupPassThroughAttributes();
+
+            this.invokeEvent.call(this, "init", document.getElementById(this.textareaId), e);
+        },
+
+        __blurHandler : function(e) {
+            this.invokeEvent.call(this, "blur", document.getElementById(this.textareaId), e);
+            if (this.isDirty()) {
+                this.valueChanged = true;
+                this.__changeHandler();
+            }
+            this.dirtyState = false;
+        },
+
+        __focusHandler : function(e) {
+            this.invokeEvent.call(this, "focus", document.getElementById(this.textareaId), e);
+        },
+
+        __changeHandler : function(e) {
+            this.invokeEvent.call(this, "change", document.getElementById(this.textareaId), e);
+        },
+
+        __getTextarea : function() {
+            return $(document.getElementById(this.textareaId));
+        },
+
+        /**
+         * Returns the form where this editor component is placed
+         */
+        __getForm : function() {
+            return $('form').has(this.__getTextarea()).get(0);
+        },
+
+        __getConfiguration : function() {
+            var textarea = this.__getTextarea();
+            return $.extend({
+                skin : this.options.skin,
+                toolbar : this.__getToolbar(),
+                readOnly : textarea.attr('readonly') || this.options.readonly,
+                width : this.__resolveUnits(this.options.width),
+                height : this.__resolveUnits(this.options.height),
+                bodyClass : 'rf-ed-b',
+                defaultLanguage : this.options.lang,
+                contentsLanguage : this.options.lang
+            }, this.config);
+        },
+
+        __setupStyling : function() {
+            var span = $(document.getElementById(this.editorElementId));
+            if (!span.hasClass('rf-ed')) {
+                span.addClass('rf-ed');
+            }
+            var styleClass = $.trim(this.options.styleClass + ' ' + this.options.editorClass);
+            if (this.initialStyle == undefined) {
+                this.initialStyle = span.attr('style');
+            }
+            var style = this.__concatStyles(this.initialStyle, this.options.style, this.options.editorStyle);
+            if (this.oldStyleClass !== styleClass) {
+                if (this.oldStyleClass) {
+                    span.removeClass(this.oldStyleClass);
+                }
+                span.addClass(styleClass);
+                this.oldStyleClass = styleClass;
+            }
+            if (this.oldStyle !== style) {
+                span.attr('style', style);
+                this.oldStyle = style;
+            }
+        },
+
+        __setupPassThroughAttributes : function() {
+            var textarea = this.__getTextarea();
+            var span = $(document.getElementById(this.editorElementId));
+
+            // title
+            span.attr('title', textarea.attr('title'));
+        },
+
+        __concatStyles : function() {
+            var result = "";
+            for ( var i = 0; i &lt; arguments.length; i++) {
+                var style = $.trim(arguments[i]);
+                if (style) {
+                    result = result + style + "; ";
+                }
+            }
+            return result;
+        },
+
+        __getToolbar : function() {
+            var toolbar = this.options.toolbar;
+
+            var lowercase = toolbar.toLowerCase();
+            if (lowercase === 'basic') {
+                return 'Basic';
+            }
+            if (lowercase === 'full') {
+                return 'Full';
+            }
+
+            return toolbar;
+        },
+
+        __setOptions : function(options) {
+            this.options = $.extend({}, defaultOptions, options);
+        },
+
+        __resolveUnits : function(dimension) {
+            var dimension = $.trim(dimension);
+            if (dimension.match(/^[0-9]+$/)) {
+                return dimension + 'px';
+            } else {
+                return dimension;
+            }
+        },
+
+        getEditor : function() {
+            return this.ckeditor;
+        },
+
+        setValue : function(newValue) {
+            this.ckeditor.setData(newValue, $.proxy(function() {
+                this.valueChanged = false;
+                this.dirtyState = false;
+                this.ckeditor.resetDirty();
+            }, this));
+        },
+
+        getValue : function() {
+            return this.ckeditor.getData();
+        },
+
+        getInput : function() {
+            return document.getElementById(this.textareaId);
+        },
+
+        focus : function() {
+            this.ckeditor.focus();
+        },
+
+        blur : function() {
+            this.ckeditor.focusManager.blur(true);
+        },
+
+        isFocused : function() {
+            return this.ckeditor.focusManager.hasFocus;
+        },
+
+        isDirty : function() {
+            return this.dirtyState || this.ckeditor.checkDirty();
+        },
+
+        isValueChanged : function() {
+            return this.valueChanged || this.isDirty();
+        },
+
+        setReadOnly : function(readOnly) {
+            this.ckeditor.setReadOnly(readOnly !== false);
+        },
+
+        isReadOnly : function() {
+            return this.ckeditor.readOnly;
+        },
+
+        destroy : function() {
+            window.clearInterval(this.dirtyCheckingInterval);
+            
+            if (this.__getForm()) {
+                rf.Event.unbind(this.__getForm(), 'ajaxsubmit', this.__updateTextareaHandlerWrapper);
+            }
+
+            if (this.ckeditor) {
+                this.ckeditor.destroy();
+                this.ckeditor = null;
+            }
+
+            this.__getTextarea().show();
+
+            $super.destroy.call(this);
+        }
+    });
+})(RichFaces.jQuery, RichFaces);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="push.html">push</a></li></ul><h3>Classes</h3><ul><li><a href="Accordion.html">Accordion</a></li><li><a href="AccordionItem.html">AccordionItem</a></li><li><a href="CollapsiblePanel.html">CollapsiblePanel</a></li><li><a href="PanelMenu.html">PanelMenu</a></li><li><a href="PanelMenuGroup.html">PanelMenuGroup</a></li><li><a href="PanelMenuItem.html">PanelMenuItem</a></li><li><a href="RichFaces.ajaxContainer.html">ajaxContainer</a></li><li><a href="RichFaces.BaseComponent.html">BaseComponent</a></li><li><a href="RichFaces.Event.html">Event</a></li><li><a href="RichFaces.queue.html">queue</a></li><li><a href="TabPanel.html">TabPanel</a></li><li><a href="TogglePanel.html">TogglePanel</a></li><li><a href="Tooltip.html">Tooltip</a></li></ul><h3>Events</h3><ul><li><a href="global.html#event:error">error</a></li><li><a href="global.html#event:push">push</a></li><li><a href="global.html#event:subscribed">subscribed</a></li></ul><h3>Namespaces</h3><ul><li><a href="jQuery.html">jQuery</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__content">__content</a></li><li><a href="global.html#__fireItemChange">__fireItemChange</a></li><li><a href="global.html#__getForm">__getForm</a></li><li><a href="global.html#__header">__header</a></li><li><a href="global.html#decreaseSubscriptionCounters">decreaseSubscriptionCounters</a></li><li><a href="global.html#getPlotObject">getPlotObject</a></li><li><a href="global.html#getValue">getValue</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#increaseSubscriptionCounters">increaseSubscriptionCounters</a></li><li><a href="global.html#invokeEvent">invokeEvent</a></li><li><a href="global.html#onCompleteHandler">onCompleteHandler</a></li><li><a href="global.html#PanelMenu#collapseAll
+
+TODO ...">PanelMenu#collapseAll
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#collapseGroup
+
+TODO ...">PanelMenu#collapseGroup
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#expandAll
+
+TODO ...">PanelMenu#expandAll
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#expandGroup
+
+TODO ...">PanelMenu#expandGroup
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#selectedItem
+
+TODO ...">PanelMenu#selectedItem
+
+TODO ...</a></li><li><a href="global.html#PanelMenu#selectItem
+
+TODO ...">PanelMenu#selectItem
+
+TODO ...</a></li><li><a href="global.html#PanelMenuGroup#switch
+
+TODO ...">PanelMenuGroup#switch
+
+TODO ...</a></li><li><a href="global.html#PanelMenuItem#hide
+
+TODO ...">PanelMenuItem#hide
+
+TODO ...</a></li><li><a href="global.html#PanelMenuItem#select
+
+TODO ...">PanelMenuItem#select
+
+TODO ...</a></li><li><a href="global.html#PanelMenuItem#show
+
+TODO ...">PanelMenuItem#show
+
+TODO ...</a></li><li><a href="global.html#setPushHandlerUrl">setPushHandlerUrl</a></li><li><a href="global.html#setPushResourceUrl">setPushResourceUrl</a></li><li><a href="global.html#setQueueOptions">setQueueOptions</a></li><li><a href="global.html#unghighlight">unghighlight</a></li><li><a href="global.html#updateConnection">updateConnection</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.3-dev</a> on Thu Oct 23 2014 20:37:37 GMT+0200 (CEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

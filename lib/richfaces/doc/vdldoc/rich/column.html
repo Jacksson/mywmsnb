@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:vdldoc="http://vdldoc.org/vdldoc" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>column (RichFaces 4.5.0.Final VDL Documentation)
+			</title>
+<meta name="keywords" content="$title">
+<link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript">
+						if (location.href.indexOf('is-external=true') == -1) parent.document.title = "Tag Documentation";
+					</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<div class="topNav">
+<a name="navbar_top"></a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow"></a>
+<ul class="navList" title="Navigation">
+<li>
+<a href="../overview-summary.html">Overview</a>
+</li>
+<li>
+<a href="tld-summary.html">Library</a>
+</li>
+<li class="navBarCell1Rev">Tag</li>
+<li>
+<a href="../help-doc.html">Help</a>
+</li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>
+<a target="_top" href="../index.html?rich/column.html">
+									Frames
+								</a>
+</li>
+<li>
+<a target="_top" href="column.html">
+									No Frames
+								</a>
+</li>
+</ul>
+<ul class="navList" id="alltags_navbar_top">
+<li>
+<a href="../alltags-noframe.html">All Tags</a>
+</li>
+</ul>
+<script type="text/javascript">
+							document.getElementById("alltags_navbar_top").style.display = (window == top) ? "block" : "none";
+						</script><a name="skip-navbar_top"></a>
+</div>
+<div class="header">
+<h1 title="Library" class="title">rich</h1>
+<h2>
+									Tag
+									column</h2>
+</div>
+<div class="contentContainer">
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>Description:</dt>
+<dd><p> The &lt;rich:column&gt; component facilitates columns in a table. It supports merging columns and rows, sorting, filtering, and customized skinning. </p> @author Anton Belevich</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Component summary table, listing component information">
+<caption>
+<span>Component Information</span><span class="tabEnd">&nbsp;</span>
+</caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Info</th><th class="colLast" scope="col">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="rowColor">
+<td class="colFirst">Component Type</td><td class="colLast"><code>org.richfaces.Column</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst">Handler Class</td><td class="colLast"><i>None</i></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst">Renderer Type</td><td class="colLast"><i>None</i></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst">Description</td><td class="colLast"><p> The &lt;rich:column&gt; component facilitates columns in a table. It supports merging columns and rows, sorting, filtering, and customized skinning. </p> @author Anton Belevich</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Attribute summary table, listing attribute information">
+<caption>
+<span>Attributes</span><span class="tabEnd">&nbsp;</span>
+</caption>
+<thead>
+<tr>
+<th class="colFirst">Name</th><th class="colOne">Required</th><th class="colOne">Type</th><th class="colLast">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr id="binding" class="rowColor">
+<td class="colFirst"><a href="#binding"><code>binding</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>javax.faces.component.UIComponent</code>)
+					</td><td class="colLast">The value binding expression used to wire up this component to a component property of a JavaBean class</td>
+</tr>
+<tr id="breakRowBefore" class="altColor">
+<td class="colFirst"><a href="#breakRowBefore"><code>breakRowBefore</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">if "true" next column begins from the first row</td>
+</tr>
+<tr id="colspan" class="rowColor">
+<td class="colFirst"><a href="#colspan"><code>colspan</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>int</code>)
+					</td><td class="colLast">Corresponds to the HTML colspan attribute</td>
+</tr>
+<tr id="comparator" class="altColor">
+<td class="colFirst"><a href="#comparator"><code>comparator</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.util.Comparator</code>)
+					</td><td class="colLast">Defines value binding to the comparator that is used to compare the values</td>
+</tr>
+<tr id="filter" class="rowColor">
+<td class="colFirst"><a href="#filter"><code>filter</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>org.richfaces.model.Filter</code>)
+					</td><td class="colLast">Provides Filter instance which determines if given row value will be displayed.</td>
+</tr>
+<tr id="filterConverterMessage" class="altColor">
+<td class="colFirst"><a href="#filterConverterMessage"><code>filterConverterMessage</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">The message to be displayed when the filter expression is not able to be evaluated using the provided filter value.</td>
+</tr>
+<tr id="filterExpression" class="rowColor">
+<td class="colFirst"><a href="#filterExpression"><code>filterExpression</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.Object</code>)
+					</td><td class="colLast">Defines EL expression which returns true if given row should be displayed (EL expressions should use variable defined in filterVar attribute of dataTable)</td>
+</tr>
+<tr id="filterType" class="altColor">
+<td class="colFirst"><a href="#filterType"><code>filterType</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Defines current filter type. Possible values: string, custom. If custom is used, no filter box is created, you are responsible for e creating your own filter input Default: string</td>
+</tr>
+<tr id="filterValue" class="rowColor">
+<td class="colFirst"><a href="#filterValue"><code>filterValue</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.Object</code>)
+					</td><td class="colLast">Defines current filtering value</td>
+</tr>
+<tr id="footerClass" class="altColor">
+<td class="colFirst"><a href="#footerClass"><code>footerClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Space-separated list of CSS style class(es) that will be applied to any footer generated for this column.</td>
+</tr>
+<tr id="headerClass" class="rowColor">
+<td class="colFirst"><a href="#headerClass"><code>headerClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Space-separated list of CSS style class(es) that will be applied to any header generated for this column.</td>
+</tr>
+<tr id="id" class="altColor">
+<td class="colFirst"><a href="#id"><code>id</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">The component identifier for this component. This value must be unique within the closest parent component that is a naming container.</td>
+</tr>
+<tr id="rendered" class="rowColor">
+<td class="colFirst"><a href="#rendered"><code>rendered</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">Flag indicating whether or not this component should be rendered (during Render Response Phase), or processed on any subsequent form submit. The default value for this property is true.</td>
+</tr>
+<tr id="rowspan" class="altColor">
+<td class="colFirst"><a href="#rowspan"><code>rowspan</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>int</code>)
+					</td><td class="colLast">Corresponds to the HTML rowspan attribute</td>
+</tr>
+<tr id="sortBy" class="rowColor">
+<td class="colFirst"><a href="#sortBy"><code>sortBy</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.Object</code>)
+					</td><td class="colLast">Defines a bean property which is used for sorting of a column.</td>
+</tr>
+<tr id="sortOrder" class="altColor">
+<td class="colFirst"><a href="#sortOrder"><code>sortOrder</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>org.richfaces.component.SortOrder</code>)
+					</td><td class="colLast">Defines order which will be used for sorting column: unsorted (default), ascending, descending</td>
+</tr>
+<tr id="sortType" class="rowColor">
+<td class="colFirst"><a href="#sortType"><code>sortType</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Defines current filtering value. Possible values: string, custom. If custom is used, no filter box is created, you are responsible for e creating your own filter input Default: string</td>
+</tr>
+<tr id="style" class="altColor">
+<td class="colFirst"><a href="#style"><code>style</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">CSS style(s) to be applied when this component is rendered.</td>
+</tr>
+<tr id="styleClass" class="rowColor">
+<td class="colFirst"><a href="#styleClass"><code>styleClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Space-separated list of CSS style class(es) to be applied when this element is rendered. This value must be passed through as the "class" attribute on generated markup.</td>
+</tr>
+<tr id="width" class="altColor">
+<td class="colFirst"><a href="#width"><code>width</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Attribute defines width of column.</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+<div class="bottomNav">
+<a name="navbar_bottom"></a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow"></a>
+<ul class="navList" title="Navigation">
+<li>
+<a href="../overview-summary.html">Overview</a>
+</li>
+<li>
+<a href="tld-summary.html">Library</a>
+</li>
+<li class="navBarCell1Rev">Tag</li>
+<li>
+<a href="../help-doc.html">Help</a>
+</li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>
+<a target="_bottom" href="../index.html?rich/column.html">
+									Frames
+								</a>
+</li>
+<li>
+<a target="_bottom" href="column.html">
+									No Frames
+								</a>
+</li>
+</ul>
+<ul class="navList" id="alltags_navbar_bottom">
+<li>
+<a href="../alltags-noframe.html">All Tags</a>
+</li>
+</ul>
+<script type="text/javascript">
+							document.getElementById("alltags_navbar_bottom").style.display = (window == top) ? "block" : "none";
+						</script><a name="skip-navbar_bottom"></a>
+</div>
+<p class="about">Output generated by <a href="http://vdldoc.omnifaces.org" target="_blank">Vdldoc</a> View Declaration Language Documentation Generator.</p>
+</body>
+</html>

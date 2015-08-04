@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:vdldoc="http://vdldoc.org/vdldoc" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>inputNumberSlider (RichFaces 4.5.0.Final VDL Documentation)
+			</title>
+<meta name="keywords" content="$title">
+<link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript">
+						if (location.href.indexOf('is-external=true') == -1) parent.document.title = "Tag Documentation";
+					</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<div class="topNav">
+<a name="navbar_top"></a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow"></a>
+<ul class="navList" title="Navigation">
+<li>
+<a href="../overview-summary.html">Overview</a>
+</li>
+<li>
+<a href="tld-summary.html">Library</a>
+</li>
+<li class="navBarCell1Rev">Tag</li>
+<li>
+<a href="../help-doc.html">Help</a>
+</li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>
+<a target="_top" href="../index.html?rich/inputNumberSlider.html">
+									Frames
+								</a>
+</li>
+<li>
+<a target="_top" href="inputNumberSlider.html">
+									No Frames
+								</a>
+</li>
+</ul>
+<ul class="navList" id="alltags_navbar_top">
+<li>
+<a href="../alltags-noframe.html">All Tags</a>
+</li>
+</ul>
+<script type="text/javascript">
+							document.getElementById("alltags_navbar_top").style.display = (window == top) ? "block" : "none";
+						</script><a name="skip-navbar_top"></a>
+</div>
+<div class="header">
+<h1 title="Library" class="title">rich</h1>
+<h2>
+									Tag
+									inputNumberSlider</h2>
+</div>
+<div class="contentContainer">
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>Description:</dt>
+<dd><p> The &amp;lt;r:inputNumberSlider&amp;gt; component provides a slider for changing numerical values. Optional features include control arrows to step through the values, a tool-tip to display the value while sliding, and a text field for typing the numerical value which can then be validated against the slider's range. </p></dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Component summary table, listing component information">
+<caption>
+<span>Component Information</span><span class="tabEnd">&nbsp;</span>
+</caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Info</th><th class="colLast" scope="col">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="rowColor">
+<td class="colFirst">Component Type</td><td class="colLast"><code>org.richfaces.InputNumberSlider</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst">Handler Class</td><td class="colLast"><i>None</i></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst">Renderer Type</td><td class="colLast"><code>org.richfaces.InputNumberSliderRenderer</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst">Description</td><td class="colLast"><p> The &amp;lt;r:inputNumberSlider&amp;gt; component provides a slider for changing numerical values. Optional features include control arrows to step through the values, a tool-tip to display the value while sliding, and a text field for typing the numerical value which can then be validated against the slider's range. </p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Attribute summary table, listing attribute information">
+<caption>
+<span>Attributes</span><span class="tabEnd">&nbsp;</span>
+</caption>
+<thead>
+<tr>
+<th class="colFirst">Name</th><th class="colOne">Required</th><th class="colOne">Type</th><th class="colLast">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr id="accesskey" class="rowColor">
+<td class="colFirst"><a href="#accesskey"><code>accesskey</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Access key that, when pressed, transfers focus to this element.</td>
+</tr>
+<tr id="binding" class="altColor">
+<td class="colFirst"><a href="#binding"><code>binding</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>javax.faces.component.UIComponent</code>)
+					</td><td class="colLast">The value binding expression used to wire up this component to a component property of a JavaBean class</td>
+</tr>
+<tr id="converter" class="rowColor">
+<td class="colFirst"><a href="#converter"><code>converter</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>javax.faces.convert.Converter</code>)
+					</td><td class="colLast">Converter instance registered with this component.</td>
+</tr>
+<tr id="converterMessage" class="altColor">
+<td class="colFirst"><a href="#converterMessage"><code>converterMessage</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">A ValueExpression enabled attribute that, if present, will be used as the text of the converter message, replacing any message that comes from the converter.</td>
+</tr>
+<tr id="decreaseClass" class="rowColor">
+<td class="colFirst"><a href="#decreaseClass"><code>decreaseClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Assigns one or more space-separated CSS class names to the decrease arrow element</td>
+</tr>
+<tr id="decreaseSelectedClass" class="altColor">
+<td class="colFirst"><a href="#decreaseSelectedClass"><code>decreaseSelectedClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Assigns one or more space-separated CSS class names to the decrease arrow element selected</td>
+</tr>
+<tr id="delay" class="rowColor">
+<td class="colFirst"><a href="#delay"><code>delay</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>int</code>)
+					</td><td class="colLast">Delay in pressed increase/decrease arrows in miliseconds. &lt;br /&gt;Default value is "200".</td>
+</tr>
+<tr id="dir" class="altColor">
+<td class="colFirst"><a href="#dir"><code>dir</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Direction indication for text that does not inherit directionality. Valid values are "LTR" (left-to-right) and "RTL" (right-to-left).</td>
+</tr>
+<tr id="disabled" class="rowColor">
+<td class="colFirst"><a href="#disabled"><code>disabled</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">Flag indicating that this element must never receive focus or be included in a subsequent submit. Default value - "false"</td>
+</tr>
+<tr id="enableManualInput" class="altColor">
+<td class="colFirst"><a href="#enableManualInput"><code>enableManualInput</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">If set to "false" this attribute makes the text field "read-only", so the value can be changed only from a handle. &lt;br /&gt;Default value is "true".</td>
+</tr>
+<tr id="handleClass" class="rowColor">
+<td class="colFirst"><a href="#handleClass"><code>handleClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Assigns one or more space-separated CSS class names to the handle element</td>
+</tr>
+<tr id="handleSelectedClass" class="altColor">
+<td class="colFirst"><a href="#handleSelectedClass"><code>handleSelectedClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Assigns one or more space-separated CSS class names to the handle element selected</td>
+</tr>
+<tr id="handleType" class="rowColor">
+<td class="colFirst"><a href="#handleType"><code>handleType</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>org.richfaces.component.InputNumberSliderHandleType</code>)
+					</td><td class="colLast">Tells how handle should look like. Possible values: arrow (default), bar</td>
+</tr>
+<tr id="id" class="altColor">
+<td class="colFirst"><a href="#id"><code>id</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">The component identifier for this component. This value must be unique within the closest parent component that is a naming container.</td>
+</tr>
+<tr id="immediate" class="rowColor">
+<td class="colFirst"><a href="#immediate"><code>immediate</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">Flag indicating that this component's value must be converted and validated immediately (that is, during Apply Request Values phase), rather than waiting until Process Validations phase.</td>
+</tr>
+<tr id="increaseClass" class="altColor">
+<td class="colFirst"><a href="#increaseClass"><code>increaseClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Assigns one or more space-separated CSS class names to the increase arrow element</td>
+</tr>
+<tr id="increaseSelectedClass" class="rowColor">
+<td class="colFirst"><a href="#increaseSelectedClass"><code>increaseSelectedClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Assigns one or more space-separated CSS class names to the increase arrow element selected</td>
+</tr>
+<tr id="inputClass" class="altColor">
+<td class="colFirst"><a href="#inputClass"><code>inputClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Assigns one or more space-separated CSS class names to the component input field</td>
+</tr>
+<tr id="inputPosition" class="rowColor">
+<td class="colFirst"><a href="#inputPosition"><code>inputPosition</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>org.richfaces.component.InputNumberSliderInputPosition</code>)
+					</td><td class="colLast">If "right", the InputText Box would be rendered on the right side of the ruler. If "left", the InputText Box would be rendered on the left side of the ruler. If "top", the InputText Box would be rendered on the top of the ruler. If "bottom", the InputText Box would be rendered on the bottom of the ruler.</td>
+</tr>
+<tr id="inputSize" class="altColor">
+<td class="colFirst"><a href="#inputSize"><code>inputSize</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>int</code>)
+					</td><td class="colLast">Similar to the "Size" attribute of h:inputText. <br /> Default value is "3".</td>
+</tr>
+<tr id="label" class="rowColor">
+<td class="colFirst"><a href="#label"><code>label</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">A localized user presentable name for this component.</td>
+</tr>
+<tr id="lang" class="altColor">
+<td class="colFirst"><a href="#lang"><code>lang</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Code describing the language used in the generated markup for this component.</td>
+</tr>
+<tr id="maxValue" class="rowColor">
+<td class="colFirst"><a href="#maxValue"><code>maxValue</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Attribute to set an "end" value. <br /> Default value is "100"</td>
+</tr>
+<tr id="maxlength" class="altColor">
+<td class="colFirst"><a href="#maxlength"><code>maxlength</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.Integer</code>)
+					</td><td class="colLast">Specifies the maximum number of digits that could be entered into the input field. The maximum number is unlimited by default. If entered value exceeds the value specified in "maxValue" attribute than the slider takes a maximum value position.</td>
+</tr>
+<tr id="minValue" class="rowColor">
+<td class="colFirst"><a href="#minValue"><code>minValue</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Attribute to set the "start" value. <br /> Default value is "0"</td>
+</tr>
+<tr id="onblur" class="altColor">
+<td class="colFirst"><a href="#onblur"><code>onblur</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when this element loses focus.</td>
+</tr>
+<tr id="onchange" class="rowColor">
+<td class="colFirst"><a href="#onchange"><code>onchange</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when this element loses focus and its value has been modified since gaining focus.</td>
+</tr>
+<tr id="onclick" class="altColor">
+<td class="colFirst"><a href="#onclick"><code>onclick</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is clicked over this element.</td>
+</tr>
+<tr id="ondblclick" class="rowColor">
+<td class="colFirst"><a href="#ondblclick"><code>ondblclick</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is double clicked over this element.</td>
+</tr>
+<tr id="onfocus" class="altColor">
+<td class="colFirst"><a href="#onfocus"><code>onfocus</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when this element receives focus.</td>
+</tr>
+<tr id="onkeydown" class="rowColor">
+<td class="colFirst"><a href="#onkeydown"><code>onkeydown</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a key is pressed down over this element.</td>
+</tr>
+<tr id="onkeypress" class="altColor">
+<td class="colFirst"><a href="#onkeypress"><code>onkeypress</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a key is pressed and released over this element.</td>
+</tr>
+<tr id="onkeyup" class="rowColor">
+<td class="colFirst"><a href="#onkeyup"><code>onkeyup</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a key is released over this element.</td>
+</tr>
+<tr id="onmousedown" class="altColor">
+<td class="colFirst"><a href="#onmousedown"><code>onmousedown</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is pressed down over this element.</td>
+</tr>
+<tr id="onmousemove" class="rowColor">
+<td class="colFirst"><a href="#onmousemove"><code>onmousemove</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is moved within this element.</td>
+</tr>
+<tr id="onmouseout" class="altColor">
+<td class="colFirst"><a href="#onmouseout"><code>onmouseout</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is moved away from this element.</td>
+</tr>
+<tr id="onmouseover" class="rowColor">
+<td class="colFirst"><a href="#onmouseover"><code>onmouseover</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is moved onto this element.</td>
+</tr>
+<tr id="onmouseup" class="altColor">
+<td class="colFirst"><a href="#onmouseup"><code>onmouseup</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when a pointer button is released over this element.</td>
+</tr>
+<tr id="onselect" class="rowColor">
+<td class="colFirst"><a href="#onselect"><code>onselect</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Javascript code executed when text within this element is selected by the user.</td>
+</tr>
+<tr id="rendered" class="altColor">
+<td class="colFirst"><a href="#rendered"><code>rendered</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">Flag indicating whether or not this component should be rendered (during Render Response Phase), or processed on any subsequent form submit. The default value for this property is true.</td>
+</tr>
+<tr id="required" class="rowColor">
+<td class="colFirst"><a href="#required"><code>required</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">Flag indicating that the user is required to provide a submitted value for this input component.</td>
+</tr>
+<tr id="requiredMessage" class="altColor">
+<td class="colFirst"><a href="#requiredMessage"><code>requiredMessage</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">A ValueExpression enabled attribute that, if present, will be used as the text of the validation message for the "required" facility, if the "required" facility is used.</td>
+</tr>
+<tr id="showArrows" class="rowColor">
+<td class="colFirst"><a href="#showArrows"><code>showArrows</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">False value for this attribute makes increase/decrease arrows invisible. <br /> Default value is "false".</td>
+</tr>
+<tr id="showBoundaryValues" class="altColor">
+<td class="colFirst"><a href="#showBoundaryValues"><code>showBoundaryValues</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">If the min/max values are shown on the right/left borders of a control. <br /> Default value is "true".</td>
+</tr>
+<tr id="showInput" class="rowColor">
+<td class="colFirst"><a href="#showInput"><code>showInput</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">False value for this attribute makes text a field invisible. <br /> Default value is "true".</td>
+</tr>
+<tr id="showTooltip" class="altColor">
+<td class="colFirst"><a href="#showTooltip"><code>showTooltip</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">If "true"the current value is shown in the tooltip when a handle control is in a "dragged" state. <br /> Default value is "true".</td>
+</tr>
+<tr id="step" class="rowColor">
+<td class="colFirst"><a href="#step"><code>step</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Parameter that determines a step between the nearest values while using a handle. <br /> Default value is "1".</td>
+</tr>
+<tr id="style" class="altColor">
+<td class="colFirst"><a href="#style"><code>style</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">CSS style(s) to be applied when this component is rendered.</td>
+</tr>
+<tr id="styleClass" class="rowColor">
+<td class="colFirst"><a href="#styleClass"><code>styleClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Space-separated list of CSS style class(es) to be applied when this element is rendered. This value must be passed through as the "class" attribute on generated markup.</td>
+</tr>
+<tr id="tabindex" class="altColor">
+<td class="colFirst"><a href="#tabindex"><code>tabindex</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Position of this element in the tabbing order for the current document. This value must be an integer between 0 and 32767.</td>
+</tr>
+<tr id="title" class="rowColor">
+<td class="colFirst"><a href="#title"><code>title</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Advisory title information about markup elements generated for this component.</td>
+</tr>
+<tr id="tooltipClass" class="altColor">
+<td class="colFirst"><a href="#tooltipClass"><code>tooltipClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Assigns one or more space-separated CSS class names to the tooltip element of the handle</td>
+</tr>
+<tr id="trackClass" class="rowColor">
+<td class="colFirst"><a href="#trackClass"><code>trackClass</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">Assigns one or more space-separated CSS class names to the track slider element</td>
+</tr>
+<tr id="validator" class="altColor">
+<td class="colFirst"><a href="#validator"><code>validator</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>javax.faces.el.MethodBinding</code>)
+					</td><td class="colLast">MethodExpression representing a validator method that will be called during Process Validations to perform correctness checks on the value of this component. The expression must evaluate to a public method that takes FacesContext, UIComponent, and Object parameters, with a return type of void.</td>
+</tr>
+<tr id="validatorMessage" class="rowColor">
+<td class="colFirst"><a href="#validatorMessage"><code>validatorMessage</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">A ValueExpression enabled attribute that, if present, will be used as the text of the validator message, replacing any message that comes from the validator.</td>
+</tr>
+<tr id="value" class="altColor">
+<td class="colFirst"><a href="#value"><code>value</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.Object</code>)
+					</td><td class="colLast">The current value of this component.</td>
+</tr>
+<tr id="valueChangeListener" class="rowColor">
+<td class="colFirst"><a href="#valueChangeListener"><code>valueChangeListener</code></a></td><td class="colOne"><code>
+							false
+						</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>javax.faces.el.MethodBinding</code>)
+					</td><td class="colLast"><p> MethodExpression representing a value change listener method that will be notified when a new value has been set for this input component. The expression must evaluate to a public method that takes a <code>ValueChangeEvent</code> parameter, with a return type of void, <span class="changed_added_2_0">or to a public method that takes no arguments with a return type of void. In the latter case, the method has no way of easily knowing what the new value is, but this can be useful in cases where a notification is needed that "this value changed".</span> </p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+<div class="bottomNav">
+<a name="navbar_bottom"></a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow"></a>
+<ul class="navList" title="Navigation">
+<li>
+<a href="../overview-summary.html">Overview</a>
+</li>
+<li>
+<a href="tld-summary.html">Library</a>
+</li>
+<li class="navBarCell1Rev">Tag</li>
+<li>
+<a href="../help-doc.html">Help</a>
+</li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>
+<a target="_bottom" href="../index.html?rich/inputNumberSlider.html">
+									Frames
+								</a>
+</li>
+<li>
+<a target="_bottom" href="inputNumberSlider.html">
+									No Frames
+								</a>
+</li>
+</ul>
+<ul class="navList" id="alltags_navbar_bottom">
+<li>
+<a href="../alltags-noframe.html">All Tags</a>
+</li>
+</ul>
+<script type="text/javascript">
+							document.getElementById("alltags_navbar_bottom").style.display = (window == top) ? "block" : "none";
+						</script><a name="skip-navbar_bottom"></a>
+</div>
+<p class="about">Output generated by <a href="http://vdldoc.omnifaces.org" target="_blank">Vdldoc</a> View Declaration Language Documentation Generator.</p>
+</body>
+</html>

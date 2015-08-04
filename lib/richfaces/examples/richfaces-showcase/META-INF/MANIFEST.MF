@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Build-Timestamp: Thu, 23 Oct 2014 19:59:23 +0200
+Implementation-Title: RichFaces Showcase
+Implementation-Version: 4.5.0.Final
+Os-Version: 3.14.22-100.fc19.x86_64
+Built-By: mpetrov
+Specification-Vendor: JBoss by Red Hat
+Created-By: Apache Maven 3.0.5
+Os-Name: Linux
+Implementation-URL: http://richfaces.org/examples/richfaces-showcase
+Java-Vendor: Oracle Corporation
+mode: development
+Implementation-Vendor: JBoss by Red Hat
+Build-Number: f7a241a749ffb6435c6e3d59aab82f25d05bc85e
+Scm-Revision: f7a241a749ffb6435c6e3d59aab82f25d05bc85e
+Implementation-Vendor-Id: org.richfaces.examples
+Scm-Url: https://github.com/richfaces/richfaces5/examples/richfaces-sh
+ owcase
+Build-Jdk: 1.7.0_65
+Java-Version: 1.7.0_65
+Scm-Connection: scm:git:git://github.com/richfaces/richfaces5.git/exam
+ ples/richfaces-showcase
+Os-Arch: amd64
+Specification-Title: RichFaces Showcase
+Specification-Version: 4.5.0.Final
+Archiver-Version: Plexus Archiver
+
